@@ -1,4 +1,4 @@
-baseURL = "https://lequangthao2965.github.io/fcjuni-workshop/"
+baseURL = "https://lequangthao2965.github.io/awsfcaj-workshop/"
 relativeURLs = false
 canonifyURLs = false
 defaultContentLanguage = "en"
@@ -14,8 +14,8 @@ home = [ "HTML", "RSS", "JSON"]
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "workshop"
   # Git hub repo link
-  editURL = "https://github.com/LeQuangThao2965/fcjuni-workshop"
-  description = "here is the demo link: https://lequangthao2965.github.io/fcjuni-workshop/"
+  editURL = "https://github.com/LeQuangThao2965/awsfcaj-workshop"
+  description = "here is the demo link: https://lequangthao2965.github.io/awsfcaj-workshop/"
   author = "lequangthao130@gmail.com"
   showVisitedLinks = true
   disableBreadcrumb = false

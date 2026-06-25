@@ -9,17 +9,20 @@ pre: " <b> 1.2. </b> "
 
 ### Week 2 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Understand the content and practical requirements of Module 01.
+* Study AWS cost optimization concepts and learn how to monitor costs through AWS Budgets.
+* Understand the pricing mechanisms of core AWS services such as EC2 and S3.
+* Practice basic IAM permission management and review the general cloud application deployment process.
+
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| ---- | ---- | ---- | ---- | ----|
+| 2   | - Review Module 01 learning content and identify the main topics that need to be practiced. <br>- Take notes on AWS service groups and basic cloud concepts introduced in the module. <br>- Map the module content to the internship objectives and future project direction. | 04/27/2026 | 04/27/2026 |
+| 3   | - Study cost optimization problems on AWS. <br>- Learn the basic difference between fixed infrastructure cost and pay-as-you-go cloud cost. <br>- Analyze common cost drivers such as EC2 running time, storage capacity, and data transfer. | 04/28/2026 | 04/28/2026 | https://000001.awsstudygroup.com/ |
+| 4   | - Learn how to create and configure AWS Budgets. <br>- Review budget thresholds, alerts, and email notification settings.<br>- Practice setting a simple cost budget to monitor AWS usage during the internship.| 04/29/2026 | https://000001.awsstudygroup.com/ |
+| 5   | - Study the pricing logic of Amazon EC2 and Amazon S3. <br>- Compare EC2 cost factors such as instance type, region, running hours, and storage. <br>- Compare S3 cost factors such as storage class, object size, requests, and transfer.| 04/30/2026 | 04/30/2026 | https://000001.awsstudygroup.com/ |
+| 6   | - Learn basic IAM permission management for cloud deployment.<br> - Review IAM User, IAM Role, Policy, and permission boundary concepts. <br>- Summarize the basic deployment workflow of a web application on AWS.| 05/01/2026 | 05/01/2026 | https://000001.awsstudygroup.com/ |
 
 
 ### Week 2 Achievements:
