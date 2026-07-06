@@ -7,163 +7,162 @@ pre: " <b> 2. </b> "
 ---
 
 # Cloud-based Digital Product Marketplace with 3D Preview
-## Giải pháp Marketplace cho sản phẩm số tích hợp xem trước 3D, thanh toán thời gian thực và lưu trữ trên AWS  
+## DaiMarket / AWS Marketplace DaiAI — Nền tảng marketplace sản phẩm số tích hợp xem trước 3D, thanh toán thời gian thực và lưu trữ trên AWS
 
 ### 1. Tóm tắt điều hành
 *Về dự án* <br>
-Dự án “Cloud-based Digital Product Marketplace with 3D Preview on AWS” là một nền tảng marketplace dành cho sản phẩm số như tài liệu PDF/Word, mô hình 3D, asset thiết kế và các tài nguyên kỹ thuật số khác. 
+Dự án **DaiMarket / AWS Marketplace DaiAI** là một nền tảng marketplace dành cho sản phẩm số, tập trung vào các loại tài nguyên như tài liệu PDF/Word, template, ebook, mô hình 3D và asset thiết kế. Hệ thống cho phép người dùng đăng ký, đăng nhập, tìm kiếm sản phẩm, xem chi tiết, xem trước một phần nội dung, thanh toán và truy cập sản phẩm sau khi đơn hàng được xác nhận thành công.
+
+Điểm nổi bật của dự án là khả năng xem trước mô hình 3D trực tiếp trên trình duyệt. Đối với sản phẩm dạng 3D, người dùng có thể quan sát mô hình trước khi mua; đối với tài liệu, hệ thống hỗ trợ preview giới hạn để người mua đánh giá nội dung trước khi quyết định thanh toán.
+
+Về mặt triển khai, Frontend sử dụng React + Vite và hiện được deploy trên Vercel để có URL HTTPS ổn định. Backend Node.js + Express chạy trên Amazon EC2 bằng PM2, kết nối Amazon RDS PostgreSQL thông qua Prisma 7. File sản phẩm, thumbnail và model preview được lưu trên Amazon S3 theo prefix `products/`, còn EC2 truy cập S3 thông qua IAM Role theo nguyên tắc least privilege.
+
+*Mục tiêu dự án*
+<br>&emsp;- Áp dụng kiến thức AWS đã học vào một ứng dụng web thực tế có đầy đủ frontend, backend, database và file storage.
+<br>&emsp;- Tách biệt compute và storage: EC2 xử lý nghiệp vụ, RDS lưu dữ liệu quan hệ, S3 lưu product assets.
+<br>&emsp;- Xây dựng flow marketplace gồm buyer, seller/admin, product management, order, library và payment webhook.
+<br>&emsp;- Thử nghiệm bảo mật truy cập bằng JWT, IAM Role và backend authorization trước khi cho phép tải file sản phẩm.
+<br>&emsp;- Tạo nền tảng có thể mở rộng sang CloudFront, Route 53, CloudWatch, CI/CD và monitoring trong giai đoạn sau.
 
 
-Hệ thống cho phép người dùng đăng ký tài khoản, đăng nhập, tìm kiếm sản phẩm, xem thông tin chi tiết, thanh toán trực tuyến và truy cập sản phẩm sau khi giao dịch được xác nhận thành công. 
-Điểm nổi bật của dự án là khả năng hiển thị mô hình 3D trực tiếp trên giao diện web đối với các sản phẩm dạng 3D Model. Người dùng có thể xoay, phóng to, thu nhỏ và quan sát sản phẩm trước khi mua, giúp tăng tính trực quan so với các website bán tài liệu số thông thường.
+### 2. Tuyên bố vấn đề
+*Vấn đề hiện tại*
+
+Các hệ thống mua bán sản phẩm số thường gặp ba nhóm vấn đề chính: trải nghiệm xem trước sản phẩm chưa trực quan, lưu trữ file trên server ứng dụng khó mở rộng và quy trình xác nhận thanh toán thủ công còn chậm. Với các sản phẩm như mô hình 3D, nếu người mua chỉ nhìn ảnh bìa hoặc mô tả văn bản thì rất khó đánh giá đúng chất lượng sản phẩm.
+
+Nếu file sản phẩm được lưu trực tiếp trên ổ đĩa của backend server, hệ thống dễ phụ thuộc vào dung lượng EC2, khó backup, khó mở rộng và có rủi ro mất file khi deploy hoặc thay đổi source code. Trên thực tế, trong quá trình triển khai thử nghiệm, việc lưu file tại `backend/storage/products` từng gây rủi ro khi git pull/stash làm lệch giữa metadata trong database và file vật lý.
+
+Ngoài ra, quy trình thanh toán thủ công không phù hợp với mô hình marketplace. Hệ thống cần một cơ chế tự động nhận webhook giao dịch, đối chiếu mã đơn hàng, cập nhật trạng thái order và mở quyền truy cập file cho buyer sau khi thanh toán thành công.
+
+*Giải pháp đề xuất*
+<br>&emsp;- Frontend React/Vite cung cấp giao diện mua bán sản phẩm số, 3D Viewer, trang quản trị và thư viện cá nhân.
+<br>&emsp;- Backend Node.js/Express xử lý API, xác thực JWT, phân quyền, upload product, order, webhook và kiểm tra quyền sở hữu sản phẩm.
+<br>&emsp;- Amazon RDS PostgreSQL lưu dữ liệu người dùng, role, category, product metadata, order, order item, payment method và trạng thái giao dịch.
+<br>&emsp;- Amazon S3 lưu file sản phẩm, thumbnail và model preview; backend upload/stream file từ S3 thay vì lưu lâu dài trên EC2.
+<br>&emsp;- EC2 truy cập S3 bằng IAM Role `marketplace-ec2-s3-role`, không dùng access key hardcode trong source code.
+<br>&emsp;- SePay webhook hỗ trợ tự động cập nhật order khi nhận thông báo giao dịch.
 
 
-Về mặt kỹ thuật, hệ thống sử dụng React ở phía Frontend, Node.js kết hợp Express ở phía Backend và database để lưu thông tin người dùng, sản phẩm, đơn hàng, giao dịch và quyền truy cập. Hạ tầng triển khai dự kiến sử dụng Amazon EC2 để chạy ứng dụng Backend, Amazon S3 để lưu trữ file sản phẩm, AWS IAM để kiểm soát quyền truy cập tài nguyên AWS và SePay để thử nghiệm quy trình thanh toán thời gian thực.
+### 3. Kiến trúc giải pháp
+Kiến trúc được thiết kế theo hướng tách lớp rõ ràng: lớp giao diện, lớp API, lớp dữ liệu quan hệ, lớp object storage và lớp bảo mật/quản trị quyền. Trong triển khai hiện tại, frontend được host trên Vercel; phương án mục tiêu có thể thay thế hoặc bổ sung CloudFront khi tài khoản AWS được xác minh và sẵn sàng dùng CDN.
 
-*Mục tiêu*
-<br>
-Mục tiêu của dự án là áp dụng các kiến thức AWS đã học trong workshop vào một bài toán thực tế, bao gồm triển khai ứng dụng web lên cloud, quản lý file bằng object storage, thiết kế phân quyền truy cập tài nguyên, tối ưu chi phí vận hành và xây dựng hệ thống có khả năng mở rộng trong tương lai.
-  
-
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Nhiều nền tảng chia sẻ hoặc mua bán sản phẩm số chỉ tập trung vào việc đăng tải file và xử lý giao dịch cơ bản. Đối với các sản phẩm có tính trực quan cao như mô hình 3D, asset game hoặc tài nguyên thiết kế, người mua thường khó đánh giá chất lượng nếu chỉ xem ảnh minh họa hoặc mô tả bằng chữ.
-
-Nếu toàn bộ file sản phẩm được lưu trực tiếp trên server ứng dụng, hệ thống sẽ gặp nhiều hạn chế như khó mở rộng dung lượng, phụ thuộc vào ổ cứng máy chủ, khó quản lý file khi số lượng sản phẩm tăng và tiềm ẩn rủi ro mất dữ liệu khi server gặp sự cố.
-
-Bên cạnh đó, quy trình xác nhận thanh toán thủ công gây bất tiện cho cả người mua và người bán. Nếu quản trị viên phải kiểm tra chuyển khoản bằng tay, thời gian xác nhận đơn hàng sẽ chậm, dễ sai sót và không phù hợp với mô hình marketplace tự động.
-
-*Giải pháp*  
-Dự án đề xuất xây dựng một marketplace cho sản phẩm số, trong đó ứng dụng web chịu trách nhiệm quản lý người dùng, sản phẩm, giao dịch và quyền truy cập sau khi mua. Các file sản phẩm được lưu trữ tách biệt trên Amazon S3 thay vì lưu trực tiếp trên server. Backend Node.js + Express đóng vai trò trung gian xử lý nghiệp vụ, xác thực người dùng, quản lý sản phẩm, kiểm tra giao dịch và giao tiếp với các dịch vụ AWS.
-
-Đối với sản phẩm dạng 3D Model, Frontend React tích hợp chức năng 3D Viewer để hiển thị mô hình trực tiếp trên web. Đối với tài liệu PDF/Word, hệ thống sẽ tiếp tục hoàn thiện chức năng xem trước nội dung trước khi mua, chẳng hạn giới hạn số trang preview hoặc hiển thị bản xem thử.
-
-Luồng thanh toán được tích hợp với SePay nhằm tự động nhận thông báo giao dịch theo thời gian thực. Khi người dùng chuyển khoản thành công, Backend xử lý dữ liệu webhook/API từ SePay, đối chiếu mã đơn hàng, cập nhật trạng thái giao dịch và mở quyền truy cập sản phẩm cho người mua.
-
-**Lợi ích và giá trị mang lại:** 
-<br>&emsp;- Mô phỏng một hệ thống marketplace thực tế với các luồng người mua, người bán và quản trị viên. 
-<br>&emsp;- Tách biệt compute và storage bằng cách triển khai ứng dụng trên EC2 và lưu file trên S3.
-<br>&emsp;- Tăng trải nghiệm người dùng nhờ khả năng xem trước mô hình 3D trên web.
-<br>&emsp;- Tự động hóa xác nhận thanh toán thông qua SePay, giảm thao tác kiểm tra thủ công.
-<br>&emsp;- Áp dụng IAM và nguyên tắc least privilege để kiểm soát quyền truy cập tài nguyên AWS.
-
-
-### 3. Kiến trúc giải pháp  
-Hệ thống được thiết kế theo mô hình web application triển khai trên AWS, bao gồm các thành phần chính: Client, Frontend, Backend, Database, Amazon S3, SePay và IAM. Người dùng truy cập giao diện React; Frontend gửi request đến Backend Node.js + Express thông qua REST API; Backend xử lý nghiệp vụ, kết nối database, giao tiếp với S3 và xử lý thanh toán thông qua SePay.
-```
-Luồng tạm thời do chưa vẽ
-User Browser
-    -> React Frontend
-        -> Node.js + Express Backend on Amazon EC2
-            -> Database
-            -> Amazon S3 (PDF, Word, images, 3D models)
-            -> SePay API / Webhook
-            -> AWS IAM Role / Policy
-```
-{{% notice note %}}
-**Note:** Sơ đồ kiến trúc chính thức sẽ được bổ sung trong báo cáo cuối sau khi hoàn tất cấu hình triển khai thử nghiệm trên AWS.
+{{% notice warning %}}
+**Hình 2.1 chưa có** — Sơ đồ kiến trúc hệ thống DaiMarket trên AWS: thể hiện Vercel hoặc CloudFront cho frontend, EC2 backend, RDS PostgreSQL, S3 product assets, IAM Role, CloudWatch và SePay webhook. Tác dụng: cho người đọc thấy toàn cảnh các thành phần hệ thống và luồng dữ liệu giữa chúng.
 {{% /notice %}}
 
-![IoT Weather Station Architecture](../../images/2-Proposal/edge_architecture.jpeg)
+Luồng tổng quát của hệ thống: người dùng truy cập frontend; frontend gọi API qua `/api`; request được chuyển đến backend EC2; backend xử lý nghiệp vụ, truy vấn RDS, upload hoặc stream file từ S3; khi có giao dịch thanh toán, SePay gửi webhook để backend xác nhận và cập nhật trạng thái đơn hàng.
 
-![IoT Weather Platform Architecture](../../images/2-Proposal/platform_architecture.jpeg)
+***Các thành phần triển khai***
 
-***Dịch vụ AWS sử dụng***
-- **React**: Xây dựng giao diện người dùng, trang sản phẩm, trang chi tiết, trang quản trị và khu vực xem trước 3D
-- **Node.js + Express**: Xây dựng Backend API, xử lý nghiệp vụ marketplace, xác thực, quản lý sản phẩm, giao dịch và tích hợp dịch vụ ngoài.
-- **Database**: Lưu dữ liệu người dùng, sản phẩm, danh mục, đơn hàng, giao dịch và quyền truy cập sản phẩm.
-- **Amazon EC2**: Môi trường triển khai Backend, chạy Node.js + Express và xử lý request từ Frontend.
-- **Amazon S3**: Lưu trữ file sản phẩm số như PDF, Word, ảnh, thumbnail và mô hình 3D.
-- **AWS IAM**: Quản lý quyền truy cập S3 và giới hạn quyền theo nguyên tắc least privilege.
-- **AWS Budget**: Theo dõi và cảnh báo chi phí trong quá trình thử nghiệm.
-- **SePay**: Tích hợp thanh toán và xử lý thông báo giao dịch theo thời gian thực.
-- **GitHub / GitHub Actions**: Quản lý mã nguồn và có thể mở rộng sang CI/CD trong giai đoạn sau.
+Thành phần | Triển khai hiện tại | Vai trò trong hệ thống
+|---|---|---|
+|Frontend | React + Vite deploy trên Vercel | Cung cấp giao diện người dùng, product listing, admin dashboard, 3D viewer và library.|
+|Backend API | Node.js + Express trên Amazon EC2, chạy bằng PM2 | Xử lý REST API, auth, role, product, order, SePay webhook và S3 streaming.|
+|Database | Amazon RDS PostgreSQL | Lưu dữ liệu quan hệ: user, role, category, product metadata, order, payment.|
+|Product Storage | Amazon S3 bucket `marketplace-frontend-thao`, prefix `products/` | Lưu file sản phẩm, thumbnail, preview model; backend truy cập bằng IAM Role.|
+|IAM | `marketplace-ec2-s3-role` | Cấp quyền PutObject/GetObject/DeleteObject/ListBucket giới hạn cho prefix `products/`.|
+|Payment | SePay webhook | Nhận thông báo giao dịch, đối chiếu mã đơn và cập nhật order SUCCESS.|
+|Monitoring | PM2 logs, AWS Budget; CloudWatch là hướng mở rộng | Theo dõi lỗi backend, chi phí và có thể mở rộng sang logs/alarms.|
 
-
-***Thiết kế thành phần***  
-- **Frontend React**: hiển thị giao diện người dùng, danh sách sản phẩm, chi tiết sản phẩm, quản trị user và viewer 3D.
-- **Backend Node.js + Express**: xử lý REST API, validate dữ liệu, kiểm tra quyền truy cập, thao tác database, gọi SePay và S3.
-- **Database**: lưu các bảng users, products, categories, orders, transactions, product_files và user_purchases.
-- **Amazon S3**: lưu các object theo cấu trúc logic như products/{productId}/thumbnail.jpg, products/{productId}/document.pdf và products/{productId}/model.glb.
-- **A**dmin**: quản lý người dùng, ban/unban tài khoản, kiểm tra sản phẩm và theo dõi trạng thái hệ thống.
-- **Seller**: đăng sản phẩm, cập nhật sản phẩm và tải file sản phẩm lên hệ thống.
-- *Buyer*: tìm kiếm, xem trước, thanh toán và truy cập sản phẩm sau khi mua.
+{{% notice note %}}
+**Ghi chú về kiến trúc mục tiêu và kiến trúc thực tế**
+<br>&emsp;- Trong sơ đồ mục tiêu có Route 53, ACM, CloudFront và WAF. Các thành phần này phù hợp cho production, nhưng chưa phải toàn bộ đã triển khai trong bản demo hiện tại.
+<br>&emsp;- Vercel đang thay thế vai trò frontend hosting/CDN trong giai đoạn demo vì CloudFront bị chặn bởi bước xác minh tài khoản AWS.
+<br>&emsp;- S3 đã được chuyển sang đúng mục đích lưu trữ product assets. Bucket vẫn nên private; user không đọc trực tiếp object nếu chưa qua backend kiểm tra quyền.
+<br>&emsp;- Backend hiện stream file từ S3 về client sau khi xác thực quyền sở hữu. Trong giai đoạn sau có thể chuyển sang presigned URL để giảm tải EC2.
+{{% /notice %}}
 
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Giai đoạn   |   Nội dung thực hiện
-|---|---|
-|Giai đoạn 1: Nghiên cứu và lựa chọn đề tài | Tìm hiểu EC2, S3, IAM, AWS Budget và quy trình deploy ứng dụng web; lựa chọn đề tài marketplace sản phẩm số tích hợp 3D Preview.|
-|Giai đoạn 2: Thiết kế kiến trúc và khởi tạo dự án | Khởi tạo React + Node.js + Express; xây dựng cấu trúc frontend/backend; xác định các module Authentication, Product Management, User Management, Payment và File Storage.|
-|Giai đoạn 3: Phát triển chức năng cốt lõi | Phát triển đăng ký, đăng nhập, tìm kiếm sản phẩm, hiển thị sản phẩm, quản lý user, ban/unban và hiển thị 3D model.|
-|Giai đoạn 4: Tích hợp thanh toán và lưu trữ file | Tích hợp SePay cho thanh toán thời gian thực; chuẩn bị luồng upload và quản lý file sản phẩm trên Amazon S3.|
-|Giai đoạn 5: Triển khai AWS và kiểm thử | Deploy Backend lên EC2, cấu hình S3 bucket, IAM Policy/Role, kiểm thử các luồng chính và hoàn thiện báo cáo.|
+### 4. Triển khai kỹ thuật
+*4.1. Backend và database*
+<br>&emsp;- Backend Node.js + Express được deploy trên EC2 Ubuntu và quản lý process bằng PM2.
+<br>&emsp;- Prisma 7 kết nối RDS PostgreSQL thông qua `@prisma/adapter-pg`.
+<br>&emsp;- Lỗi kết nối RDS qua Node/Prisma đã được xử lý bằng cấu hình SSL trong Prisma adapter.
+<br>&emsp;- Required seed dùng upsert để tạo role admin/buyer/seller, payment methods và categories mà không xóa dữ liệu thật.
+<br>&emsp;- API chính gồm auth, admin, products, categories, seller applications, orders, webhook, withdrawals và library.
+
+*4.2. Product storage trên Amazon S3*
+<br>&emsp;- Ban đầu file sản phẩm được lưu trong `backend/storage/products` trên EC2, nhưng cách này không ổn định khi deploy và không phù hợp mở rộng.
+<br>&emsp;- Backend đã chuyển sang `multer.memoryStorage` để nhận file tạm trong RAM, sau đó upload buffer lên S3 bằng AWS SDK.
+<br>&emsp;- Database lưu `fileUrl` dạng filename và `storageKey` dạng `products/<uuid>.<ext>` để truy xuất file từ S3.
+<br>&emsp;- Khi user xem thumbnail, preview model hoặc tải file trong library, backend lấy object từ S3 và stream về browser.
+<br>&emsp;- EC2 đã được attach IAM Role `marketplace-ec2-s3-role` và đã test thành công PutObject, ListObject, DeleteObject với S3 prefix `products/`.
+
+*4.3. Frontend và routing*
+<br>&emsp;- Frontend React/Vite được deploy trên Vercel.
+<br>&emsp;- Đã xử lý SPA routing bằng rewrite để các route như `/login`, `/register`, `/products` có thể truy cập trực tiếp.
+<br>&emsp;- Vercel rewrite `/api/*` về backend EC2 để tránh lỗi mixed content và giúp frontend gọi API bằng relative path.
+<br>&emsp;- Các lỗi hardcode localhost trong frontend API đã được rà soát và sửa về `/api/...` để phù hợp với môi trường deploy.
+
+*4.4. Payment và quyền truy cập sau mua*
+<br>&emsp;- Order được tạo ở trạng thái PENDING sau khi buyer checkout.
+<br>&emsp;- SePay webhook nhận nội dung chuyển khoản, tách mã đơn `DAIMxxxxxxxx`, tìm order tương ứng và cập nhật PENDING sang SUCCESS.
+<br>&emsp;- Library chỉ hiển thị/tải sản phẩm khi user có Order SUCCESS chứa product đó.
+<br>&emsp;- Download và preview đi qua backend để kiểm tra JWT và quyền sở hữu trước khi stream file từ S3.
 
 
-*Yêu cầu kỹ thuật*  
-- Backend hỗ trợ REST API, xác thực bằng session/JWT, validate dữ liệu, xử lý upload file, kết nối database và giao tiếp với SePay/S3.
-- Frontend hỗ trợ giao diện responsive, danh sách sản phẩm, form đăng nhập/đăng ký, trang chi tiết sản phẩm, trang quản trị và 3D Viewer.
-- AWS cần có EC2 instance cho môi trường thử nghiệm, Security Group mở các port cần thiết, S3 bucket lưu file sản phẩm, IAM policy giới hạn quyền truy cập và AWS Budget để theo dõi chi phí.
-- Hệ thống cần kiểm tra quyền truy cập sau khi mua để đảm bảo người dùng chỉ tải/xem đầy đủ sản phẩm đã thanh toán thành công.
-
-*Trạng thái nguyên mẫu hiện tại*
-- Đã có chức năng đăng ký, đăng nhập và tìm kiếm sản phẩm.
-- Đã có giao diện hiển thị 3D View Model đối với sản phẩm dạng 3D Model.
-- Đã có chức năng quản lý user cơ bản, bao gồm ban/unban user.
-- nĐã tích hợp thanh toán thời gian thực thông qua SePay và xử lý thông báo chuyển tiền để xác nhận giao dịch thành công.
-- Chưa hoàn thiện deploy AWS, sơ đồ kiến trúc chính thức, đăng ký seller, quản lý danh mục và chức năng preview tài liệu trước khi mua.
+### 5. Lộ trình & Mốc triển khai
+Mốc | Nội dung chính | Kết quả
+|---|---|---|
+|Giai đoạn 1 | Học EC2, S3, IAM, AWS Budget; xác định đề tài marketplace sản phẩm số. | Nắm được dịch vụ AWS cần dùng và phạm vi MVP.|
+|Giai đoạn 2 | Khởi tạo React/Vite + Node.js/Express + Prisma/PostgreSQL; xây dựng database schema. | Có nền tảng auth, product, category, order.|
+|Giai đoạn 3 | Phát triển frontend, 3D viewer, admin dashboard, search, product detail, SePay flow. | Hoàn thành các chức năng nghiệp vụ chính.|
+|Giai đoạn 4 | Deploy backend lên EC2, kết nối RDS, xử lý lỗi Prisma/RDS SSL, seed required data. | API public hoạt động, database cloud chạy ổn định.|
+|Giai đoạn 5 | Deploy frontend lên Vercel, sửa SPA routing/API rewrite, chuyển product storage sang S3. | MVP deploy thành công: Vercel + EC2 + RDS + S3 + IAM Role.|
+|Giai đoạn sau | Hoàn thiện CloudFront/Route 53/ACM, monitoring CloudWatch, CI/CD và presigned URL. | Tiến gần hơn tới kiến trúc production.|
 
 
+### 6. Ước tính ngân sách
+Dự án được triển khai theo hướng tiết kiệm chi phí để phục vụ mục tiêu học tập và demo thực tập. Số liệu cuối cùng sẽ được cập nhật bằng AWS Billing hoặc AWS Pricing Calculator tại thời điểm nộp báo cáo, vì chi phí phụ thuộc region, instance type, thời gian chạy, dung lượng lưu trữ và data transfer.
 
-### 5. Lộ trình & Mốc triển khai  
-Mốc thời gian | Mục tiêu chính
-|---|---|
-|Tháng 1 | Học nền tảng AWS, thực hành EC2/S3/IAM/AWS Budget, thử nghiệm deploy ứng dụng mẫu và xác định đề tài.|
-|Tháng 2 | Thiết kế kiến trúc EC2 + S3 + IAM, khởi tạo project React + Node.js + Express, xây dựng database và phát triển MVP.|
-|Tháng 3 | Tích hợp thanh toán SePay, hoàn thiện luồng buyer/seller/admin, deploy thử nghiệm lên EC2, tích hợp S3 và hoàn thiện báo cáo.|
+{{% notice warning %}}
+**Hình 2.2 chưa có** — Ảnh chụp AWS Billing/Budget hoặc AWS Pricing Calculator thể hiện tổng chi phí dự kiến theo tháng cho EC2, RDS, S3 và data transfer. Tác dụng: làm bằng chứng số liệu ngân sách thực tế thay cho ước tính lý thuyết.
+{{% /notice %}}
 
-- *Sau triển khai*: Tiếp tục nghiên cứu và phát triển sản phẩm thêm 1 năm.  
-
-### 6. Ước tính ngân sách  
-
-Dự án được thiết kế theo hướng tiết kiệm chi phí trong môi trường học tập và thử nghiệm. Các dịch vụ chính gồm Amazon EC2, Amazon S3, AWS IAM và AWS Budget. Chi phí thực tế sẽ được cập nhật bằng AWS Pricing Calculator sau khi chốt Region, instance type, dung lượng S3 và thời gian chạy EC2.
-```
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
-```
-```
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
-
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
-```
-
-### 7. Đánh giá rủi ro  
-Rủi ro|	Ảnh hưởng|	Xác suất|	Chiến lược giảm thiểu
+Dịch vụ | Cấu hình/Phạm vi dùng | Trạng thái | Ước tính/ghi chú cần cập nhật
 |---|---|---|---|
-|Chưa triển khai thành công lên AWS	|Cao	|Trung bình	|Ưu tiên deploy Backend lên EC2 trước, sau đó mới tích hợp S3 và các phần phụ.|
-|Tích hợp S3 gặp lỗi quyền truy cập	|Trung bình	|Trung bình	|Thiết kế IAM policy rõ ràng và kiểm thử từng quyền PutObject, GetObject, DeleteObject.|
-|Preview PDF/Word chưa hoàn thiện	|Trung bình	|Cao	|Ưu tiên preview PDF trước; với Word có thể dùng bản PDF preview hoặc thumbnail thay thế.|
-|Sai lệch trạng thái giao dịch thanh toán	|Cao	|Trung bình	|Kiểm tra mã đơn hàng, số tiền, trạng thái giao dịch và xử lý chống trùng webhook.|
-|Vượt chi phí AWS khi thử nghiệm	|Trung bình	|Thấp	|Bật AWS Budget, giới hạn dung lượng S3 và tắt EC2 khi không sử dụng.|
+|Amazon EC2 | 1 instance Ubuntu chạy backend Node.js bằng PM2 | Đang dùng | Cần điền chi phí theo instance type thực tế và thời gian chạy 24/7 hoặc theo giờ.|
+|Amazon RDS PostgreSQL | Single-AZ, db.t4g.micro, 20 GiB gp3 | Đang dùng | Ước tính nội bộ trước đó khoảng 13.98 USD/tháng; cần xác nhận lại trong AWS Billing.|
+|Amazon S3 | Bucket `marketplace-frontend-thao`, prefix `products/` cho product assets | Đang dùng | Chi phí thấp ở quy mô demo; cần tính theo GB lưu trữ + request + data transfer.|
+|IAM Role/Policy | `marketplace-ec2-s3-role` | Đang dùng | Không tính phí riêng.|
+|Vercel | Frontend hosting tạm thời | Đang dùng | Hobby/free nếu dùng đúng hạn mức; không phải chi phí AWS.|
+|CloudFront/Route 53/WAF | Thiết kế mục tiêu | Chưa dùng trong demo | Không đưa vào tổng chi phí thực tế nếu chưa bật; có thể đưa vào phần mở rộng.|
+|AWS Budget/CloudWatch | Theo dõi chi phí/logs | Một phần | AWS Budget không tính phí cơ bản; CloudWatch cần cập nhật nếu bật logs/alarms.|
 
 
-### 8. Kết quả kỳ vọng  
-- Xây dựng được marketplace sản phẩm số với các chức năng cơ bản như đăng ký, đăng nhập, tìm kiếm, xem chi tiết sản phẩm, quản lý user và quản lý sản phẩm.
-- Hỗ trợ hiển thị mô hình 3D trực tiếp trên web đối với sản phẩm dạng 3D Model.
-- Tích hợp quy trình thanh toán thời gian thực thông qua SePay và tự động cập nhật trạng thái giao dịch.
-- Triển khai thử nghiệm Backend lên Amazon EC2 và sử dụng Amazon S3 để lưu trữ file sản phẩm số.
-- Áp dụng AWS IAM để kiểm soát quyền truy cập tài nguyên cloud theo nguyên tắc bảo mật cơ bản.
-- Hình thành kiến trúc hệ thống rõ ràng, phù hợp để trình bày trong báo cáo workshop và có khả năng mở rộng trong tương lai.
-Về giá trị học tập, dự án giúp sinh viên hiểu rõ hơn quy trình triển khai một ứng dụng web thực tế lên AWS, cách tách biệt compute và storage, cách thiết kế API backend, cách xử lý thanh toán online và cách kiểm soát quyền truy cập tài nguyên theo nguyên tắc bảo mật cơ bản.
+### 7. Đánh giá rủi ro
+Rủi ro | Ảnh hưởng | Xác suất | Chiến lược giảm thiểu
+|---|---|---|---|
+|CloudFront/Route 53 chưa dùng được do xác minh tài khoản AWS | Trung bình | Trung bình | Dùng Vercel làm frontend hosting tạm thời; giữ CloudFront là phương án production sau.|
+|Lỗi kết nối Prisma/RDS do SSL | Cao | Đã xảy ra | Cấu hình SSL trong Prisma adapter; test bằng pg driver và Prisma runtime trước khi chạy seed.|
+|Mất đồng bộ metadata DB và file local trên EC2 | Cao | Đã xảy ra | Chuyển product storage sang S3; tránh phụ thuộc `backend/storage/products`.|
+|S3 permission sai khiến upload/download lỗi | Cao | Trung bình | Dùng IAM Role cho EC2; giới hạn policy theo prefix `products/` và test Put/Get/Delete.|
+|Xóa product đã có order gây lỗi foreign key | Trung bình | Trung bình | Không xóa cứng product đã có order; đề xuất soft delete/isActive trong giai đoạn sau.|
+|Sai lệch trạng thái thanh toán/webhook | Cao | Trung bình | Dùng mã đơn DAIM + idempotency; kiểm tra status order và log webhook.|
+|Vượt chi phí cloud trong giai đoạn demo | Trung bình | Thấp-Trung bình | Bật budget alert, dùng Single-AZ, tắt dịch vụ không cần thiết, tránh NAT/ALB/WAF nếu chưa cần.|
 
-Về khả năng mở rộng, hệ thống có thể phát triển thêm các chức năng như đăng ký seller, duyệt sản phẩm trước khi đăng bán, quản lý danh mục nâng cao, đánh giá sản phẩm, ví người bán, chia doanh thu, preview tài liệu trước khi mua và CI/CD tự động bằng GitHub Actions.
+
+### 8. Kết quả kỳ vọng
+- Hoàn thành MVP marketplace sản phẩm số gồm login/register, search, product detail, 3D preview, admin product/category management, order và library.
+- Backend chạy ổn định trên Amazon EC2 và kết nối Amazon RDS PostgreSQL để lưu dữ liệu quan hệ.
+- Product files, thumbnails và preview models được lưu trên Amazon S3 thay vì EC2 local disk.
+- Người dùng chỉ xem/tải file sau khi backend xác thực JWT và kiểm tra quyền sở hữu sản phẩm.
+- SePay webhook hỗ trợ tự động cập nhật trạng thái thanh toán từ PENDING sang SUCCESS.
+- Dự án có sơ đồ kiến trúc rõ ràng, thể hiện được compute, storage, database, IAM và payment integration.
+- Hình thành cơ sở để mở rộng sang seller approval, soft delete product, CloudFront/Route 53/ACM, CloudWatch logging, CI/CD và presigned URL.
+
+
+### 9. Danh sách hình ảnh/chứng cứ sẽ bổ sung
+{{% notice info %}}
+Các hình bên dưới **chưa có** và sẽ được chèn vào báo cáo sau khi chụp/vẽ xong. Bảng mô tả rõ từng hình cần thể hiện nội dung gì.
+{{% /notice %}}
+
+Mã hình | Tên hình/chứng cứ | Nội dung cần thể hiện
+|---|---|---|
+|Hình 2.1 | Sơ đồ kiến trúc hệ thống DaiMarket trên AWS | Vercel hoặc CloudFront, EC2 backend, RDS, S3 product assets, IAM Role, SePay webhook.|
+|Hình 2.2 | AWS Billing/Budget hoặc Pricing Calculator | Chi phí dự kiến theo tháng cho EC2, RDS, S3 và data transfer.|
+|Hình 2.3 | EC2 IAM Role | Instance backend có IAM Role `marketplace-ec2-s3-role`.|
+|Hình 2.4 | S3 bucket `products/` | Object mới xuất hiện sau khi admin upload sản phẩm.|
+|Hình 2.5 | API health/products/categories | curl hoặc browser trả response thành công.|
+|Hình 2.6 | Demo frontend | Trang chủ/search/product detail/library/admin hoạt động trên Vercel.|
+|Hình 2.7 | SePay webhook/order status | Webhook nhận request và order chuyển SUCCESS nếu có giao dịch test hợp lệ.|

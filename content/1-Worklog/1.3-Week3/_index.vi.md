@@ -17,11 +17,11 @@ pre: " <b> 1.3. </b> "
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Tìm hiểu các khái niệm Amazon EC2 gồm AMI, instance type, key pair, EBS volume, public IP và region. <br>- Chuẩn bị cấu hình cho EC2 dùng trong triển khai web mẫu. | 04/05/2026 | 04/05/2026 | |
-| 3 | - Tạo thử EC2 instance từ AWS Management Console. <br>- Cấu hình Security Group cho SSH và HTTP. <br>- Kiểm tra mối liên hệ giữa rule mạng và khả năng truy cập server. | 05/05/2026 | 05/05/2026 | |
-| 4 | - Kết nối đến EC2 bằng SSH. <br>- Thực hành các lệnh Linux cơ bản để kiểm tra hệ thống, cài package và quản lý file. <br>- Kiểm tra kết nối server từ máy cá nhân. | 06/05/2026 | 06/05/2026 | |
+| 2 | - Tìm hiểu các khái niệm Amazon EC2 gồm AMI, instance type, key pair, EBS volume, public IP và region. <br>- Chuẩn bị cấu hình cho EC2 dùng trong triển khai web mẫu. | 04/05/2026 | 04/05/2026 | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html> |
+| 3 | - Tạo thử EC2 instance từ AWS Management Console. <br>- Cấu hình Security Group cho SSH và HTTP. <br>- Kiểm tra mối liên hệ giữa rule mạng và khả năng truy cập server. | 05/05/2026 | 05/05/2026 | <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html> |
+| 4 | - Kết nối đến EC2 bằng SSH. <br>- Thực hành các lệnh Linux cơ bản để kiểm tra hệ thống, cài package và quản lý file. <br>- Kiểm tra kết nối server từ máy cá nhân. | 06/05/2026 | 06/05/2026 | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-ssh.html> |
 | 5 | - Triển khai ứng dụng web mẫu trên EC2. <br>- Kiểm tra truy cập web thông qua public IP. <br>- Sửa các lỗi cơ bản liên quan đến port, firewall và trạng thái service. | 07/05/2026 | 07/05/2026 | |
-| 6 | - Thực hành cấu hình IAM User, IAM Role và Policy. <br>- Tìm hiểu cách cấp quyền an toàn cho tài nguyên AWS. <br>- Tổng kết quy trình triển khai EC2 và các bài học rút ra. | 08/05/2026 | 08/05/2026 | |
+| 6 | - Thực hành cấu hình IAM User, IAM Role và Policy. <br>- Tìm hiểu cách cấp quyền an toàn cho tài nguyên AWS. <br>- Tổng kết quy trình triển khai EC2 và các bài học rút ra. | 08/05/2026 | 08/05/2026 | <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html> |
 
 
 ### Kết quả đạt được tuần 3:

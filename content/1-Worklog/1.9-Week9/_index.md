@@ -18,10 +18,10 @@ pre: " <b> 1.9. </b> "
 | Day | Task | Start Date | Completion Date | Reference Material |
 | ---- | ---- | ---- | ---- | ----|
 | 2 | - Review the current project prototype and list completed features. <br>- Test registration, login, and authentication flow. <br>- Check basic user session behavior and access control. | 06/15/2026 | 06/15/2026 | |
-| 3 | - Test product search and product display functions. <br>- Verify product detail pages for digital documents and 3D model products. <br>- Check the 3D viewer behavior for GLB model files. | 06/16/2026 | 06/16/2026 | |
+| 3 | - Test product search and product display functions. <br>- Verify product detail pages for digital documents and 3D model products. <br>- Check the 3D viewer behavior for GLB model files. | 06/16/2026 | 06/16/2026 | <https://threejs.org/docs/> |
 | 4 | - Test admin user management features. <br>- Verify ban/unban user logic and its effect on user access. <br>- Review missing parts in role management and seller registration. | 06/17/2026 | 06/17/2026 | |
-| 5 | - Test the SePay payment integration flow. <br>- Call SePay API or process payment notification data to confirm successful transactions. <br>- Check whether successful transactions correctly update purchase status. | 06/18/2026 | 06/18/2026 | |
-| 6 | - Review remaining issues and update the project plan. <br>- List incomplete features including AWS deployment, architecture diagram, seller registration, category management, and document preview before purchase. <br>- Prepare the direction for the next development phase. | 06/19/2026 | 06/19/2026 | |
+| 5 | - Test the SePay payment integration flow. <br>- Call SePay API or process payment notification data to confirm successful transactions. <br>- Check whether successful transactions correctly update purchase status. | 06/18/2026 | 06/18/2026 | <https://docs.sepay.vn/> |
+| 6 | - Review remaining issues and update the project plan. <br>- List incomplete features including AWS deployment, architecture diagram, seller registration, category management, and document preview before purchase. <br>- Prepare the direction for the next development phase. | 06/19/2026 | 06/19/2026 | <https://aws.amazon.com/architecture/> |
 
 
 ### Week 9 Achievements:

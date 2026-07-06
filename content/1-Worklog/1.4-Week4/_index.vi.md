@@ -19,9 +19,9 @@ pre: " <b> 1.4. </b> "
 | --- | --- | --- | --- | --- |
 | 2 | - Xem xét các ý tưởng dự án như file storage, marketplace và nền tảng sản phẩm số. <br>- Phân tích tính khả thi, chi phí, dịch vụ AWS cần dùng và phạm vi hoàn thành. | 11/05/2026 | 11/05/2026 | |
 | 3 | - Chọn đề tài dự án và xác định mục đích hệ thống. <br>- Xác định các nhóm người dùng chính: buyer, seller và admin. <br>- Liệt kê các chức năng cốt lõi cần có trong prototype đầu tiên. | 12/05/2026 | 12/05/2026 | |
-| 4 | - Thiết kế kiến trúc cloud ban đầu với EC2, S3 và IAM. <br>- Xác định trách nhiệm của từng dịch vụ AWS trong hệ thống. <br>- Phác thảo luồng dữ liệu giữa frontend, backend, database và object storage. | 13/05/2026 | 13/05/2026 | |
-| 5 | - Khởi tạo backend bằng Node.js và Express. <br>- Tạo cấu trúc thư mục ban đầu cho routes, controllers, services, models và middleware. <br>- Chuẩn bị cấu hình môi trường cho việc tích hợp AWS và database sau này. | 14/05/2026 | 14/05/2026 | |
-| 6 | - Khởi tạo frontend React. <br>- Tạo cấu trúc thư mục ban đầu cho pages, components, services và assets. <br>- Kiểm tra kế hoạch kết nối cơ bản giữa frontend và backend. | 15/05/2026 | 15/05/2026 | |
+| 4 | - Thiết kế kiến trúc cloud ban đầu với EC2, S3 và IAM. <br>- Xác định trách nhiệm của từng dịch vụ AWS trong hệ thống. <br>- Phác thảo luồng dữ liệu giữa frontend, backend, database và object storage. | 13/05/2026 | 13/05/2026 | <https://aws.amazon.com/architecture/> |
+| 5 | - Khởi tạo backend bằng Node.js và Express. <br>- Tạo cấu trúc thư mục ban đầu cho routes, controllers, services, models và middleware. <br>- Chuẩn bị cấu hình môi trường cho việc tích hợp AWS và database sau này. | 14/05/2026 | 14/05/2026 | <https://expressjs.com/> |
+| 6 | - Khởi tạo frontend React. <br>- Tạo cấu trúc thư mục ban đầu cho pages, components, services và assets. <br>- Kiểm tra kế hoạch kết nối cơ bản giữa frontend và backend. | 15/05/2026 | 15/05/2026 | <https://react.dev/> |
 
 
 ### Kết quả đạt được tuần 4:

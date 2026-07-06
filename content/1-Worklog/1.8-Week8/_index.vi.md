@@ -17,10 +17,10 @@ pre: " <b> 1.8. </b> "
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Rà soát cấu trúc database hiện tại trước khi thêm chức năng thanh toán. <br>- Bổ sung hoặc điều chỉnh các field như mã đơn hàng, số tiền giao dịch, trạng thái, buyer, seller và sản phẩm đã mua. <br>- Định nghĩa ràng buộc để hạn chế dữ liệu thanh toán không hợp lệ. | 08/06/2026 | 08/06/2026 | |
+| 2 | - Rà soát cấu trúc database hiện tại trước khi thêm chức năng thanh toán. <br>- Bổ sung hoặc điều chỉnh các field như mã đơn hàng, số tiền giao dịch, trạng thái, buyer, seller và sản phẩm đã mua. <br>- Định nghĩa ràng buộc để hạn chế dữ liệu thanh toán không hợp lệ. | 08/06/2026 | 08/06/2026 | <https://www.prisma.io/docs> |
 | 3 | - Cập nhật model backend và service logic để hỗ trợ purchase và transaction records. <br>- Chuẩn bị API cho tạo đơn hàng và kiểm tra trạng thái thanh toán. <br>- Kiểm thử cấu trúc dữ liệu mới bằng dữ liệu thanh toán mẫu. | 09/06/2026 | 09/06/2026 | |
-| 4 | - Nghiên cứu SePay API và quy trình webhook/thông báo thanh toán. <br>- Chuẩn bị phương án tích hợp để thử nghiệm thanh toán. <br>- Cấu hình endpoint backend cần thiết để nhận hoặc xử lý thông tin giao dịch. | 10/06/2026 | 10/06/2026 | |
-| 5 | - Tích hợp SePay vào dự án để thử nghiệm thanh toán. <br>- Xây dựng logic đối chiếu thông tin thanh toán với đơn hàng trong hệ thống. <br>- Kiểm thử luồng xác nhận giao dịch bằng dữ liệu mẫu. | 11/06/2026 | 11/06/2026 | |
+| 4 | - Nghiên cứu SePay API và quy trình webhook/thông báo thanh toán. <br>- Chuẩn bị phương án tích hợp để thử nghiệm thanh toán. <br>- Cấu hình endpoint backend cần thiết để nhận hoặc xử lý thông tin giao dịch. | 10/06/2026 | 10/06/2026 | <https://docs.sepay.vn/> |
+| 5 | - Tích hợp SePay vào dự án để thử nghiệm thanh toán. <br>- Xây dựng logic đối chiếu thông tin thanh toán với đơn hàng trong hệ thống. <br>- Kiểm thử luồng xác nhận giao dịch bằng dữ liệu mẫu. | 11/06/2026 | 11/06/2026 | <https://docs.sepay.vn/> |
 | 6 | - Rà soát quy trình thanh toán và sửa các lỗi cơ bản. <br>- Ghi nhận các giới hạn còn lại như seller registration chưa hoàn chỉnh, category management còn thiếu và preview tài liệu chưa ổn định. <br>- Chuẩn bị hệ thống cho giai đoạn kiểm thử chức năng cốt lõi ở tuần tiếp theo. | 12/06/2026 | 12/06/2026 | |
 
 

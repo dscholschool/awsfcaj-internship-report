@@ -17,11 +17,11 @@ pre: " <b> 1.2. </b> "
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Ôn tập nội dung Module 01 và xác định các phần cần thực hành. <br>- Ghi chú các nhóm dịch vụ AWS và khái niệm cloud cơ bản. <br>- Liên hệ nội dung module với mục tiêu thực tập và định hướng dự án sau này. | 27/04/2026 | 27/04/2026 | |
-| 3 | - Tìm hiểu bài toán tối ưu hóa chi phí trên AWS. <br>- Phân biệt chi phí hạ tầng cố định và chi phí cloud theo mô hình pay-as-you-go. <br>- Phân tích các yếu tố làm phát sinh chi phí như thời gian chạy EC2, dung lượng lưu trữ và truyền dữ liệu. | 28/04/2026 | 28/04/2026 | |
-| 4 | - Tìm hiểu cách tạo và cấu hình AWS Budgets. <br>- Xem xét ngưỡng cảnh báo, thông báo email và cách theo dõi chi phí. <br>- Thực hành tạo budget đơn giản để giám sát chi phí trong quá trình thực tập. | 29/04/2026 | 29/04/2026 | |
-| 5 | - Tìm hiểu cơ chế tính phí của Amazon EC2 và Amazon S3. <br>- So sánh các yếu tố tính phí của EC2 như loại instance, region, thời gian chạy và storage. <br>- So sánh các yếu tố tính phí của S3 như storage class, dung lượng object, request và data transfer. | 30/04/2026 | 30/04/2026 | |
-| 6 | - Tìm hiểu phân quyền cơ bản bằng IAM cho quá trình deploy. <br>- Ôn lại IAM User, IAM Role, Policy và permission boundary. <br>- Tổng hợp quy trình triển khai cơ bản của một ứng dụng web trên AWS. | 01/05/2026 | 01/05/2026 | |
+| 2 | - Ôn tập nội dung Module 01 và xác định các phần cần thực hành. <br>- Ghi chú các nhóm dịch vụ AWS và khái niệm cloud cơ bản. <br>- Liên hệ nội dung module với mục tiêu thực tập và định hướng dự án sau này. | 27/04/2026 | 27/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - Tìm hiểu bài toán tối ưu hóa chi phí trên AWS. <br>- Phân biệt chi phí hạ tầng cố định và chi phí cloud theo mô hình pay-as-you-go. <br>- Phân tích các yếu tố làm phát sinh chi phí như thời gian chạy EC2, dung lượng lưu trữ và truyền dữ liệu. | 28/04/2026 | 28/04/2026 | <https://aws.amazon.com/pricing/> |
+| 4 | - Tìm hiểu cách tạo và cấu hình AWS Budgets. <br>- Xem xét ngưỡng cảnh báo, thông báo email và cách theo dõi chi phí. <br>- Thực hành tạo budget đơn giản để giám sát chi phí trong quá trình thực tập. | 29/04/2026 | 29/04/2026 | <https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html> |
+| 5 | - Tìm hiểu cơ chế tính phí của Amazon EC2 và Amazon S3. <br>- So sánh các yếu tố tính phí của EC2 như loại instance, region, thời gian chạy và storage. <br>- So sánh các yếu tố tính phí của S3 như storage class, dung lượng object, request và data transfer. | 30/04/2026 | 30/04/2026 | <https://aws.amazon.com/ec2/pricing/> <br> <https://aws.amazon.com/s3/pricing/> |
+| 6 | - Tìm hiểu phân quyền cơ bản bằng IAM cho quá trình deploy. <br>- Ôn lại IAM User, IAM Role, Policy và permission boundary. <br>- Tổng hợp quy trình triển khai cơ bản của một ứng dụng web trên AWS. | 01/05/2026 | 01/05/2026 | <https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html> |
 
 
 ### Kết quả đạt được tuần 2:

@@ -18,9 +18,9 @@ pre: " <b> 1.6. </b> "
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
 | 2 | - Rà soát cấu trúc source code hiện tại và xác định các phần khó bảo trì. <br>- Lập kế hoạch cải thiện cách phân tách component frontend và module backend. <br>- Định nghĩa quy ước đặt tên cho file, route và service. | 25/05/2026 | 25/05/2026 | |
-| 3 | - Refactor cấu trúc backend. <br>- Tách rõ route definition, controller logic, service logic và model access. <br>- Kiểm tra format response API để đồng nhất. | 26/05/2026 | 26/05/2026 | |
+| 3 | - Refactor cấu trúc backend. <br>- Tách rõ route definition, controller logic, service logic và model access. <br>- Kiểm tra format response API để đồng nhất. | 26/05/2026 | 26/05/2026 | <https://expressjs.com/en/guide/using-middleware.html> |
 | 4 | - Refactor cấu trúc frontend. <br>- Sắp xếp React pages, reusable components, API service files và logic trạng thái. <br>- Loại bỏ code trùng lặp hoặc không còn sử dụng nếu có. | 27/05/2026 | 27/05/2026 | |
-| 5 | - Rà soát và cập nhật thiết kế database/data model. <br>- Bổ sung field và ràng buộc cho users, products, product files, categories, purchases và transactions. <br>- Kiểm tra quan hệ giữa các entity trước khi tiếp tục phát triển. | 28/05/2026 | 28/05/2026 | |
+| 5 | - Rà soát và cập nhật thiết kế database/data model. <br>- Bổ sung field và ràng buộc cho users, products, product files, categories, purchases và transactions. <br>- Kiểm tra quan hệ giữa các entity trước khi tiếp tục phát triển. | 28/05/2026 | 28/05/2026 | <https://www.prisma.io/docs> |
 | 6 | - Kiểm thử các chức năng hiện có sau khi refactor. <br>- Sửa lỗi phát sinh do thay đổi cấu trúc. <br>- Chuẩn bị dự án cho các chức năng quản lý sản phẩm, upload S3 và thanh toán. | 29/05/2026 | 29/05/2026 | |
 
 

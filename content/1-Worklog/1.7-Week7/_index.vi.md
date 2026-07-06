@@ -20,8 +20,8 @@ pre: " <b> 1.7. </b> "
 | 2 | - Xây dựng luồng tạo và cập nhật sản phẩm ở backend. <br>- Định nghĩa các trường cần thiết như tên, giá, mô tả, danh mục, loại file và chủ sở hữu. <br>- Bổ sung validate cho thông tin sản phẩm bắt buộc. | 01/06/2026 | 01/06/2026 | |
 | 3 | - Xây dựng giao diện React cho thêm và sửa sản phẩm. <br>- Kết nối input form với các endpoint backend. <br>- Kiểm thử đăng sản phẩm bằng dữ liệu sản phẩm số mẫu. | 02/06/2026 | 02/06/2026 | |
 | 4 | - Phát triển API danh sách sản phẩm và chi tiết sản phẩm. <br>- Hiển thị kết quả tìm kiếm và thông tin chi tiết sản phẩm trên frontend. <br>- Cải thiện xử lý lỗi khi thiếu hoặc sai dữ liệu sản phẩm. | 03/06/2026 | 03/06/2026 | |
-| 5 | - Tích hợp logic quản lý file sản phẩm. <br>- Chuẩn bị xử lý upload cho hình ảnh, tài liệu và file GLB 3D model. <br>- Kiểm thử lưu và lấy metadata file của sản phẩm. | 04/06/2026 | 04/06/2026 | |
-| 6 | - Kiểm thử toàn bộ luồng dữ liệu sản phẩm giữa frontend và backend. <br>- Tối ưu cấu trúc API và format response. <br>- Sửa lỗi trong module quản lý sản phẩm và chuẩn bị cho tích hợp thanh toán. | 05/06/2026 | 05/06/2026 | |
+| 5 | - Tích hợp logic quản lý file sản phẩm. <br>- Chuẩn bị xử lý upload cho hình ảnh, tài liệu và file GLB 3D model. <br>- Kiểm thử lưu và lấy metadata file của sản phẩm. | 04/06/2026 | 04/06/2026 | <https://expressjs.com/en/resources/middleware/multer.html> |
+| 6 | - Kiểm thử toàn bộ luồng dữ liệu sản phẩm giữa frontend và backend. <br>- Tối ưu cấu trúc API và format response. <br>- Sửa lỗi trong module quản lý sản phẩm và chuẩn bị cho tích hợp thanh toán. | 05/06/2026 | 05/06/2026 | <https://threejs.org/docs/> |
 
 
 ### Kết quả đạt được tuần 7:

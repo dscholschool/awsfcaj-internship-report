@@ -17,10 +17,10 @@ pre: " <b> 1.8. </b> "
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | ---- | ---- | ---- | ---- | ----|
-| 2 | - Review the existing database structure before adding payment features. <br>- Add or adjust fields for order code, transaction amount, status, buyer, seller, and purchased product. <br>- Define constraints to reduce invalid data during payment processing. | 06/08/2026 | 06/08/2026 | |
+| 2 | - Review the existing database structure before adding payment features. <br>- Add or adjust fields for order code, transaction amount, status, buyer, seller, and purchased product. <br>- Define constraints to reduce invalid data during payment processing. | 06/08/2026 | 06/08/2026 | <https://www.prisma.io/docs> |
 | 3 | - Update backend models and service logic to support purchase and transaction records. <br>- Prepare API endpoints for creating orders and checking payment status. <br>- Test the new data structure with sample payment records. | 06/09/2026 | 06/09/2026 | |
-| 4 | - Research SePay API and webhook/payment notification workflow. <br>- Prepare the integration plan for payment testing. <br>- Configure backend endpoints needed to receive or process transaction information. | 06/10/2026 | 06/10/2026 | |
-| 5 | - Integrate SePay into the project for payment testing. <br>- Implement logic for matching payment information with system orders. <br>- Test transaction confirmation flow using sample data. | 06/11/2026 | 06/11/2026 | |
+| 4 | - Research SePay API and webhook/payment notification workflow. <br>- Prepare the integration plan for payment testing. <br>- Configure backend endpoints needed to receive or process transaction information. | 06/10/2026 | 06/10/2026 | <https://docs.sepay.vn/> |
+| 5 | - Integrate SePay into the project for payment testing. <br>- Implement logic for matching payment information with system orders. <br>- Test transaction confirmation flow using sample data. | 06/11/2026 | 06/11/2026 | <https://docs.sepay.vn/> |
 | 6 | - Review the payment workflow and fix basic issues. <br>- Document remaining limitations such as incomplete seller registration, category management, and document preview. <br>- Prepare the system for more complete core function testing in the next week. | 06/12/2026 | 06/12/2026 | |
 
 

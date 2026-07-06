@@ -18,9 +18,9 @@ pre: " <b> 1.6. </b> "
 | Day | Task | Start Date | Completion Date | Reference Material |
 | ---- | ---- | ---- | ---- | ----|
 | 2 | - Review the current source code structure and identify parts that are hard to maintain. <br>- Plan improvements for separating frontend components and backend modules. <br>- Define naming conventions for files, routes, and services. | 05/25/2026 | 05/25/2026 | |
-| 3 | - Refactor the backend structure. <br>- Separate route definitions, controller logic, service logic, and model access. <br>- Check whether API responses follow a consistent format. | 05/26/2026 | 05/26/2026 | |
+| 3 | - Refactor the backend structure. <br>- Separate route definitions, controller logic, service logic, and model access. <br>- Check whether API responses follow a consistent format. | 05/26/2026 | 05/26/2026 | <https://expressjs.com/en/guide/using-middleware.html> |
 | 4 | - Refactor the frontend structure. <br>- Organize React pages, reusable components, API service files, and state-related logic. <br>- Remove duplicated UI or unused code where possible. | 05/27/2026 | 05/27/2026 | |
-| 5 | - Review and update the database/data model design. <br>- Add fields and constraints for users, products, product files, categories, purchases, and transactions. <br>- Check relationships between entities before continuing development. | 05/28/2026 | 05/28/2026 | |
+| 5 | - Review and update the database/data model design. <br>- Add fields and constraints for users, products, product files, categories, purchases, and transactions. <br>- Check relationships between entities before continuing development. | 05/28/2026 | 05/28/2026 | <https://www.prisma.io/docs> |
 | 6 | - Test existing functions after refactoring. <br>- Fix errors caused by structure changes. <br>- Prepare the project for implementing product management, S3 upload, and payment features. | 05/29/2026 | 05/29/2026 | |
 
 

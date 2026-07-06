@@ -17,9 +17,9 @@ pre: " <b> 1.5. </b> "
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Thiết kế layout frontend và luồng điều hướng cơ bản. <br>- Tạo các trang React ban đầu cho home, login/register, product list và product detail. <br>- Định nghĩa các component dùng lại cho product card và form. | 18/05/2026 | 18/05/2026 | |
-| 3 | - Xây dựng khung API backend cho quản lý sản phẩm. <br>- Chuẩn bị Express routes và controllers cho chức năng lấy danh sách và chi tiết sản phẩm. <br>- Kiểm thử response API với dữ liệu mẫu. | 19/05/2026 | 19/05/2026 | |
-| 4 | - Nghiên cứu quy trình upload và lưu trữ trên Amazon S3 cho tài nguyên sản phẩm. <br>- Xác định các loại file dự kiến: hình ảnh, PDF, Word và GLB 3D model. <br>- Phác thảo cấu trúc object key trên S3 cho file sản phẩm. | 20/05/2026 | 20/05/2026 | |
+| 2 | - Thiết kế layout frontend và luồng điều hướng cơ bản. <br>- Tạo các trang React ban đầu cho home, login/register, product list và product detail. <br>- Định nghĩa các component dùng lại cho product card và form. | 18/05/2026 | 18/05/2026 | <https://react.dev/> |
+| 3 | - Xây dựng khung API backend cho quản lý sản phẩm. <br>- Chuẩn bị Express routes và controllers cho chức năng lấy danh sách và chi tiết sản phẩm. <br>- Kiểm thử response API với dữ liệu mẫu. | 19/05/2026 | 19/05/2026 | <https://expressjs.com/en/guide/routing.html> |
+| 4 | - Nghiên cứu quy trình upload và lưu trữ trên Amazon S3 cho tài nguyên sản phẩm. <br>- Xác định các loại file dự kiến: hình ảnh, PDF, Word và GLB 3D model. <br>- Phác thảo cấu trúc object key trên S3 cho file sản phẩm. | 20/05/2026 | 20/05/2026 | <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html> |
 | 5 | - Kết nối form frontend với API backend. <br>- Kiểm thử trao đổi dữ liệu giữa React và Express bằng dữ liệu sản phẩm cơ bản. <br>- Xác định các trường cần validate khi đăng sản phẩm. | 21/05/2026 | 21/05/2026 | |
 | 6 | - Rà soát kiến trúc hiện tại và điều chỉnh trách nhiệm của từng module. <br>- Sắp xếp các công việc còn lại cho authentication, upload, seller workflow và payment. <br>- Ghi nhận các lỗi kỹ thuật phát hiện trong giai đoạn phát triển ban đầu. | 22/05/2026 | 22/05/2026 | |
 
