@@ -1,33 +1,32 @@
 ---
 title: "Week 6 Worklog"
 date: 2024-01-01
-weight: 1
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-### Week 6 Objectives:
+## OBJECTIVES AND ASSIGNED TASKS
 
-* Stabilize the project structure after the initial implementation stage.
-* Refactor frontend and backend folders to improve maintainability.
-* Continue improving the database schema and data structure.
-* Fix issues found in the early implementation and prepare for core feature development.
+* Completely finish the remaining labs of Module 3 regarding the EC2 compute service.
+* Shift focus to Module 4 to delve into AWS storage services, creating a premise for building large-scale data warehouses.
 
+## IMPLEMENTATION PROCESS AND ACCUMULATED KNOWLEDGE
 
-### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| ---- | ---- | ---- | ---- | ----|
-| 2 | - Review the current source code structure and identify parts that are hard to maintain. <br>- Plan improvements for separating frontend components and backend modules. <br>- Define naming conventions for files, routes, and services. | 05/25/2026 | 05/25/2026 | |
-| 3 | - Refactor the backend structure. <br>- Separate route definitions, controller logic, service logic, and model access. <br>- Check whether API responses follow a consistent format. | 05/26/2026 | 05/26/2026 | <https://expressjs.com/en/guide/using-middleware.html> |
-| 4 | - Refactor the frontend structure. <br>- Organize React pages, reusable components, API service files, and state-related logic. <br>- Remove duplicated UI or unused code where possible. | 05/27/2026 | 05/27/2026 | |
-| 5 | - Review and update the database/data model design. <br>- Add fields and constraints for users, products, product files, categories, purchases, and transactions. <br>- Check relationships between entities before continuing development. | 05/28/2026 | 05/28/2026 | <https://www.prisma.io/docs> |
-| 6 | - Test existing functions after refactoring. <br>- Fix errors caused by structure changes. <br>- Prepare the project for implementing product management, S3 upload, and payment features. | 05/29/2026 | 05/29/2026 | |
+This week serves as a hinge point, combining the computing power of EC2 with diverse storage solutions, helping to form a complete architecture for practical projects.
 
+### Completing Advanced EC2 Configuration (Module 3)
+* **Implementation process:** Processed the final labs of Module 3, focusing on creating backups (Snapshots) for virtual server hard drives and practicing data restoration from these backups.
+* **Accumulated knowledge:** Deeply ingrained the system data integrity protection process. Mastering Snapshot creation operations ensures that server configurations can be quickly replicated or immediately restored when incidents occur, maintaining high availability for the application environment.
 
-### Week 6 Achievements:
+### Distinguishing Core Cloud Storage Types (Module 4)
+* **Implementation process:** Researched and compared three foundational AWS storage services: Amazon EBS (Block Storage), Amazon EFS (File Storage), and Amazon S3 (Object Storage).
+* **Accumulated knowledge:** Mastered technical characteristics to correctly apply the service for each specific problem:
+  * **Amazon EBS (Elastic Block Store):** Understood this is a virtual hard drive attached directly to an EC2 instance. It is suitable for storing the OS or serving as physical storage for Database Management Systems requiring high Read/Write speed (IOPS) and ultra-low latency.
+  * **Amazon S3 (Simple Storage Service):** Approached the Object Storage model. Unlike traditional directory architectures, S3 stores data as "Objects" within "Buckets". This is an ideal architecture for building massive Data Lakes, where raw and semi-structured data from transaction-heavy industries like retail, e-commerce, or banking transaction history are concentrated. This data can then be easily extracted and processed using tools like Python (Pandas) before being visualized on Power BI, or served directly for training K-means clustering models and decision trees.
+* **Tutorial Video:** https://youtu.be/_yunukwcAwc?si=JVG6PhQaUkZ-xG-A
 
-* Improved the frontend/backend project structure and separated responsibilities more clearly.
-* Reorganized routes, controllers, services, components, and shared utilities.
-* Updated the data structure for users, products, digital files, product categories, and transactions.
-* Added more constraints and fields to support future marketplace features.
-* Performed basic testing and fixed issues in the existing modules before adding larger features.
+### Storage Cost Optimization (Storage FinOps)
+* **Implementation process:** Researched Storage Classes within the Amazon S3 service.
+* **Accumulated knowledge:** Applied flexible cost management thinking by classifying data lifecycles. Learned how to configure automatic transitions for infrequently used data from S3 Standard to S3 Standard-IA (Infrequent Access) to minimize storage costs per GB, or use Amazon Glacier for long-term archiving of reports and historical log files at highly optimal price points.
+* **Tutorial Video:** https://youtu.be/mPBjB6Ltl_Q?si=wkVTH1muEnh_n4yC

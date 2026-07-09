@@ -1,33 +1,30 @@
 ---
 title: "Week 8 Worklog"
 date: 2024-01-01
-weight: 1
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-### Week 8 Objectives:
+## OBJECTIVES AND ASSIGNED TASKS
 
-* Adjust and optimize the data structure to support payment and transaction features.
-* Add necessary constraints and attributes for the marketplace model.
-* Integrate SePay for testing the online payment flow.
-* Prepare real-time transaction confirmation logic.
+* Complete the labs of Module 5. Apply IAM policies to control access and protect cloud resources.
+* Learn about AWS database services through the guidance in Module 6.
 
+## IMPLEMENTATION PROCESS AND ACCUMULATED KNOWLEDGE
 
-### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| ---- | ---- | ---- | ---- | ----|
-| 2 | - Review the existing database structure before adding payment features. <br>- Add or adjust fields for order code, transaction amount, status, buyer, seller, and purchased product. <br>- Define constraints to reduce invalid data during payment processing. | 06/08/2026 | 06/08/2026 | <https://www.prisma.io/docs> |
-| 3 | - Update backend models and service logic to support purchase and transaction records. <br>- Prepare API endpoints for creating orders and checking payment status. <br>- Test the new data structure with sample payment records. | 06/09/2026 | 06/09/2026 | |
-| 4 | - Research SePay API and webhook/payment notification workflow. <br>- Prepare the integration plan for payment testing. <br>- Configure backend endpoints needed to receive or process transaction information. | 06/10/2026 | 06/10/2026 | <https://docs.sepay.vn/> |
-| 5 | - Integrate SePay into the project for payment testing. <br>- Implement logic for matching payment information with system orders. <br>- Test transaction confirmation flow using sample data. | 06/11/2026 | 06/11/2026 | <https://docs.sepay.vn/> |
-| 6 | - Review the payment workflow and fix basic issues. <br>- Document remaining limitations such as incomplete seller registration, category management, and document preview. <br>- Prepare the system for more complete core function testing in the next week. | 06/12/2026 | 06/12/2026 | |
+This week, combining security barriers with setting up structured data warehouses helped me perfect my mindset regarding a secure and high-performance backend system.
 
+### Identity Security Practice (Lab Module 5)
+* **Implementation process:** Manually deployed security labs, directly granting permissions to IAM Users, and assigning IAM Roles to virtual servers.
+* **Accumulated knowledge:** Mastered the process of troubleshooting access right leakage and thoroughly applied the "Least Privilege" principle. Completing these labs ensures that the core data system will be strictly protected from unauthorized access flows.
 
-### Week 8 Achievements:
-
-* Updated the data structure with additional fields and constraints for products, orders, transactions, and user roles.
-* Prepared the payment-related workflow including order creation, transaction status, and purchase confirmation.
-* Integrated SePay API for payment testing and transaction lookup.
-* Implemented the initial logic for processing transaction notifications and updating payment status.
-* Identified remaining issues related to seller registration, category management, and document preview.
+### Cloud Database Architecture (AWS Databases - Module 6)
+* **Implementation process:** Studied theory and analyzed the architecture of AWS database types, comparing self-managed databases (Unmanaged) on EC2 virtual servers versus using fully managed database services (Managed Services).
+* **Accumulated knowledge:**
+  * **Amazon RDS (Relational Database Service):** Clearly understood how AWS automates heavy administrative tasks such as backups, software patching, and High Availability (Multi-AZ) configuration. A key highlight is that in the RDS environment, complex structured data retrieval operations using Stored Procedures and Triggers on SQL Server or Oracle platforms are still supported and operated with maximum performance. This is extremely important when designing ETL data processing flows to prepare inputs for Python (Pandas) libraries before visualizing on Power BI.
+  * **Amazon DynamoDB:** Approached NoSQL database management systems with millisecond latency. Learned how to organize data in Key-Value format instead of traditional relational table structures, which is very suitable for processing massive data streams from e-commerce or retail transactions.
+  * **Amazon Redshift:** Gained an overview of AWS's Data Warehouse solution, concentrating Petabyte-scale data to serve analytical queries (OLAP) and artificial intelligence.
+* **Tutorial Videos:**
+  * https://youtu.be/qbrobQZrokY?si=4cNW9UNTkpEOGlUJ
+  * https://youtu.be/UvdiRW34aNI?si=DnAUArafHcvZbpoY

@@ -1,33 +1,32 @@
 ---
 title: "Worklog Tuần 6"
 date: 2024-01-01
-weight: 1
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-### Mục tiêu tuần 6:
+## MỤC TIÊU & NHIỆM VỤ ĐƯỢC GIAO
 
-* Ổn định cấu trúc dự án sau giai đoạn triển khai ban đầu.
-* Refactor cấu trúc frontend và backend để dễ bảo trì hơn.
-* Tiếp tục hoàn thiện database schema và data structure.
-* Sửa lỗi phát sinh và chuẩn bị cho giai đoạn phát triển tính năng cốt lõi.
+* Hoàn thành dứt điểm các bài lab còn lại của Module 3 về dịch vụ tính toán EC2.
+* Chuyển trọng tâm sang Module 4 để tìm hiểu sâu về các dịch vụ lưu trữ (Storage) của AWS, tạo tiền đề cho việc xây dựng các kho dữ liệu quy mô lớn.
 
+## QUÁ TRÌNH THỰC HIỆN & KIẾN THỨC TÍCH LŨY
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2 | - Rà soát cấu trúc source code hiện tại và xác định các phần khó bảo trì. <br>- Lập kế hoạch cải thiện cách phân tách component frontend và module backend. <br>- Định nghĩa quy ước đặt tên cho file, route và service. | 25/05/2026 | 25/05/2026 | |
-| 3 | - Refactor cấu trúc backend. <br>- Tách rõ route definition, controller logic, service logic và model access. <br>- Kiểm tra format response API để đồng nhất. | 26/05/2026 | 26/05/2026 | <https://expressjs.com/en/guide/using-middleware.html> |
-| 4 | - Refactor cấu trúc frontend. <br>- Sắp xếp React pages, reusable components, API service files và logic trạng thái. <br>- Loại bỏ code trùng lặp hoặc không còn sử dụng nếu có. | 27/05/2026 | 27/05/2026 | |
-| 5 | - Rà soát và cập nhật thiết kế database/data model. <br>- Bổ sung field và ràng buộc cho users, products, product files, categories, purchases và transactions. <br>- Kiểm tra quan hệ giữa các entity trước khi tiếp tục phát triển. | 28/05/2026 | 28/05/2026 | <https://www.prisma.io/docs> |
-| 6 | - Kiểm thử các chức năng hiện có sau khi refactor. <br>- Sửa lỗi phát sinh do thay đổi cấu trúc. <br>- Chuẩn bị dự án cho các chức năng quản lý sản phẩm, upload S3 và thanh toán. | 29/05/2026 | 29/05/2026 | |
+Tuần này đóng vai trò bản lề khi kết hợp sức mạnh tính toán của EC2 với các giải pháp lưu trữ đa dạng, giúp hình thành kiến trúc hoàn chỉnh cho các dự án thực tế.
 
+### Hoàn thiện Cấu hình nâng cao cho EC2 (Module 3)
+* **Quá trình thực hiện:** Xử lý các bài lab cuối của Module 3, tập trung vào việc tạo các bản sao lưu (Snapshots) cho ổ cứng máy chủ ảo và thực hành khôi phục dữ liệu từ các bản sao lưu này.
+* **Kiến thức tích lũy:** Khắc sâu quy trình bảo vệ toàn vẹn dữ liệu hệ thống. Việc thành thạo thao tác tạo Snapshot giúp đảm bảo các cấu hình máy chủ có thể được nhân bản nhanh chóng hoặc phục hồi ngay lập tức khi xảy ra sự cố, duy trì tính sẵn sàng cao cho môi trường ứng dụng.
 
-### Kết quả đạt được tuần 6:
+### Phân biệt các loại hình Lưu trữ Đám mây cốt lõi (Module 4)
+* **Quá trình thực hiện:** Nghiên cứu và so sánh ba dịch vụ lưu trữ nền tảng của AWS: Amazon EBS (Block Storage), Amazon EFS (File Storage), và Amazon S3 (Object Storage).
+* **Kiến thức tích lũy:** Nắm vững đặc tính kỹ thuật để áp dụng đúng dịch vụ cho từng bài toán:
+  * **Amazon EBS (Elastic Block Store):** Hiểu rõ đây là ổ cứng ảo gắn trực tiếp vào máy chủ EC2. Nó phù hợp để lưu trữ hệ điều hành hoặc làm nơi lưu trữ vật lý cho các hệ quản trị cơ sở dữ liệu đòi hỏi tốc độ đọc/ghi (IOPS) cao và độ trễ cực thấp.
+  * **Amazon S3 (Simple Storage Service):** Tiếp cận với mô hình Object Storage. Khác với kiến trúc thư mục truyền thống, S3 lưu trữ dữ liệu dưới dạng "Object" (đối tượng) nằm trong các "Bucket". Đây là kiến trúc lý tưởng để xây dựng các Data Lake khổng lồ, nơi tập trung dữ liệu thô, dữ liệu bán cấu trúc từ các ngành có khối lượng giao dịch lớn như bán lẻ, thương mại điện tử hay lịch sử giao dịch ngân hàng. Dữ liệu này sau đó có thể dễ dàng được trích xuất (extract) và xử lý bằng các công cụ như Python (Pandas) trước khi đưa lên Power BI để trực quan hóa, hoặc phục vụ trực tiếp cho việc huấn luyện các mô hình phân cụm K-means và cây quyết định.
+* **Video hướng dẫn:** https://youtu.be/_yunukwcAwc?si=JVG6PhQaUkZ-xG-A
 
-* Tối ưu cấu trúc frontend/backend và phân tách trách nhiệm rõ hơn.
-* Sắp xếp lại routes, controllers, services, components và utilities.
-* Cập nhật cấu trúc dữ liệu cho người dùng, sản phẩm, file số, danh mục và giao dịch.
-* Bổ sung một số trường và ràng buộc để hỗ trợ các chức năng marketplace sau này.
-* Kiểm thử cơ bản và sửa lỗi các module hiện có trước khi phát triển tính năng lớn hơn.
+### Tối ưu chi phí Lưu trữ (Storage FinOps)
+* **Quá trình thực hiện:** Nghiên cứu các hạng lưu trữ (Storage Classes) bên trong dịch vụ Amazon S3.
+* **Kiến thức tích lũy:** Áp dụng tư duy quản lý chi phí linh hoạt bằng cách phân loại vòng đời dữ liệu. Nắm được cách cấu hình chuyển tự động dữ liệu ít sử dụng từ S3 Standard sang S3 Standard-IA (Infrequent Access) để giảm thiểu chi phí lưu trữ trên mỗi GB, hoặc sử dụng Amazon Glacier để lưu trữ dài hạn (Archive) các báo cáo và tệp log lịch sử với mức giá cực kỳ tối ưu.
+* **Video hướng dẫn:** https://youtu.be/mPBjB6Ltl_Q?si=wkVTH1muEnh_n4yC
