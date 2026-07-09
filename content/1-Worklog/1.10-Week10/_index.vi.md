@@ -1,45 +1,40 @@
 ---
 title: "Worklog Tuần 10"
 date: 2024-01-01
-weight: 2
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
-### Mục tiêu tuần 10:
+## MỤC TIÊU & NHIỆM VỤ ĐƯỢC GIAO
 
-* Hoàn thiện và ổn định các chức năng cốt lõi của hệ thống DaiMarket (auth, sản phẩm, danh mục, mua hàng, thư viện cá nhân).
-* Kiểm thử toàn bộ chức năng hiện có theo các luồng buyer/admin/seller ở mức demo thực tế.
-* Triển khai và kiểm thử các dịch vụ AWS theo sơ đồ kiến trúc hiện tại: EC2, RDS PostgreSQL, S3 và IAM Role.
+* [cite_start]Sử dụng công cụ draw.io để thiết kế sơ đồ kiến trúc (Architecture) tổng thể cho toàn bộ dự án trên môi trường AWS[cite: 249].
+* [cite_start]Tham vấn ý kiến chuyên môn từ các quản trị viên (admin), thực hiện tinh chỉnh và hoàn thiện bản vẽ[cite: 250].
+* [cite_start]Xác định và chuẩn hóa các luồng xử lý giao tiếp giữa Frontend, Backend, Cơ sở dữ liệu và các dịch vụ bên thứ ba[cite: 251].
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2   | - Rà soát các chức năng cốt lõi: auth, product listing, search, product detail, admin dashboard <br> - Xác định các chức năng cần ổn định trước khi deploy                                                                                                          | 22/06/2026   | 22/06/2026      |
-| 3   | - Kiểm thử user flow: buyer đăng ký/đăng nhập, xem sản phẩm, mua hàng, lịch sử mua hàng, thư viện cá nhân <br> - Sửa lỗi tải file trong lịch sử mua hàng (dùng chung service download với Library) <br> - Kiểm thử 3D preview và preview/download tài liệu             | 23/06/2026   | 23/06/2026      |
-| 4   | - Hoàn thiện admin/seller flow: category theo group DOCUMENT/MODEL_3D, product management, upload thumbnail/file/model <br> - Cập nhật `seed-required.js` theo hướng an toàn (upsert, không xóa dữ liệu thật) <br> - Gán role admin bằng SQL để kiểm thử chức năng quản trị | 24/06/2026   | 24/06/2026      |
-| 5   | - Deploy backend lên EC2 Ubuntu (Node.js, Git, PM2) <br> - Tạo RDS PostgreSQL db.t4g.micro Single-AZ, kết nối private qua Security Group <br> - Xử lý lỗi SSL khi Prisma 7 kết nối RDS (`@prisma/adapter-pg`) <br> - Kiểm tra migration/seed và API public               | 25/06/2026   | 25/06/2026      | <https://docs.aws.amazon.com/rds/> |
-| 6   | - Tạo S3 bucket, dùng prefix `products/` lưu file sản phẩm <br> - Attach IAM Role `marketplace-ec2-s3-role` cho EC2 (least privilege) <br> - Test upload/list/delete S3 bằng AWS CLI từ EC2 <br> - Chuyển product storage từ ổ đĩa EC2 sang S3 (memoryStorage + AWS SDK)   | 26/06/2026   | 26/06/2026      | <https://docs.aws.amazon.com/s3/> |
+## QUÁ TRÌNH THỰC HIỆN & KIẾN THỨC TÍCH LŨY
 
+[cite_start]Trong tuần này, việc vẽ kiến trúc không chỉ là thao tác sắp xếp các biểu tượng mà là quá trình tư duy hệ thống[cite: 253]. [cite_start]Qua 2 lần đệ trình và chỉnh sửa dựa trên phản hồi của các anh chị admin, tôi đã chốt được kiến trúc cuối cùng với 5 luồng xử lý cốt lõi[cite: 254]:
 
-### Kết quả đạt được tuần 10:
+### 1. Xây dựng Vùng đệm Public cho Frontend & API
+* [cite_start]**Quá trình thực hiện:** Thiết lập luồng người dùng truy cập từ Frontend (được host độc lập trên Vercel)[cite: 255]. [cite_start]Mọi yêu cầu gọi API sẽ đi qua Internet Gateway (IGW) và được kiểm soát bởi Application Load Balancer (ALB) nằm tại Public Subnet[cite: 256].
+* [cite_start]**Kiến thức tích lũy:** Tôi đã hiểu rõ cách ALB đóng vai trò như một "vùng đệm" (DMZ) an toàn để phân bổ lưu lượng mạng trước khi đi sâu vào hệ thống[cite: 257].
 
-* Hệ thống đạt trạng thái MVP deploy được trên cloud, đủ phục vụ demo và làm nền tảng cho báo cáo Workshop cuối:
-  * Frontend React/Vite chạy online trên Vercel (thay CloudFront trong giai đoạn demo vì tài khoản AWS chưa xác minh xong).
-  * Backend Node.js + Express + Prisma chạy trên EC2 bằng PM2, API public hoạt động qua rewrite/proxy từ Vercel.
-  * Database chuyển sang Amazon RDS PostgreSQL: lưu user, role, product, category, order, payment method, order item.
-  * File sản phẩm, thumbnail, preview model đã chuyển sang Amazon S3 prefix `products/`; backend đọc/stream từ S3 sau khi kiểm tra quyền.
-  * EC2 truy cập S3 bằng IAM Role `marketplace-ec2-s3-role` (PutObject/GetObject/DeleteObject/ListBucket giới hạn trong prefix `products/`), không cần access key trong `.env`.
-  * SePay webhook tích hợp ở mức backend: xác thực API key, xử lý mã đơn `DAIM...` để cập nhật order PENDING → SUCCESS.
+### 2. Bảo mật tuyệt đối cho Khối Compute (Private Network)
+* [cite_start]**Quá trình thực hiện:** Thiết lập cụm máy chủ Backend (Node.js/Express) chạy trên EC2 và được tự động co giãn bằng Auto Scaling Group[cite: 258].
+* [cite_start]**Kiến thức tích lũy:** Điểm mấu chốt là toàn bộ khối này được giấu kín hoàn toàn bên trong Private Subnet, không có bất kỳ kết nối trực tiếp nào với Internet, đảm bảo tính an toàn tối đa cho trung tâm xử lý logic nghiệp vụ (xác thực, phân quyền, quản lý sản phẩm)[cite: 259].
 
-* Các lỗi đã phát hiện và fix thành công:
-  * Prisma seed báo `P1010/DatabaseAccessDenied` — nguyên nhân gốc là Node/Prisma kết nối RDS chưa dùng SSL đúng cách; debug bằng pg thuần và cấu hình SSL trong adapter.
-  * `seed.js` gốc nguy hiểm (clear all tables) — tạo `seed-required.js` riêng chỉ upsert Role/PaymentMethod/Category.
-  * Truy cập trực tiếp `/login` trên Vercel bị 404 — thêm `vercel.json` rewrite mọi route về `index.html` (SPA routing).
-  * Register/Login bị Network Error — frontend bundle còn gọi `localhost:3000`, sửa về relative path `/api/...` và rewrite tới backend EC2.
-  * Admin `/api/admin/stats` trả 403 — gán role admin bằng SQL, logout/login lại để JWT mới có role admin.
-  * Order history tải file 404 — sửa dùng `downloadProductFile` giống Library, gọi đúng route `/api/library/:productId/file`.
-  * File product cũ 404 sau git pull — restore/sync file và chuyển hướng lưu trữ dài hạn sang S3.
-  * Xóa product đã có order bị `P2003` (foreign key) — ghi nhận hướng xử lý chuẩn là soft delete thay vì hard delete.
+### 3. Tối ưu Hiệu năng xử lý tại Khối Database
+* [cite_start]**Quá trình thực hiện:** Phân bổ Amazon RDS PostgreSQL vào một Private Subnet độc lập khác, chỉ cho phép EC2 giao tiếp qua Security Group nội bộ (cổng 5432)[cite: 260].
+* [cite_start]**Kiến thức tích lũy:** Thay vì đẩy mọi gánh nặng tính toán lên Backend Node.js, nhóm đã tận dụng triệt để sức mạnh của cơ sở dữ liệu bằng cách thiết kế các Stored Procedures và Triggers trực tiếp trên RDS[cite: 261]. [cite_start]Cách tiếp cận này giúp xử lý tự động và cực kỳ nhanh chóng các logic đối soát trạng thái đơn hàng phức tạp[cite: 262].
 
-* Việc còn lại sau tuần 10: kiểm thử SePay với giao dịch thật/mock đúng format, soft delete product, đưa secret vào SSM Parameter Store/Secrets Manager, cấu hình CloudWatch Logs và cân nhắc chuyển frontend sang CloudFront khi tài khoản AWS được mở.
+### 4. Thiết lập Đường hầm Nội bộ (VPC Endpoint) cho Storage
+* [cite_start]**Quá trình thực hiện:** Lựa chọn Amazon Amazon S3 (chế độ Private) làm nơi lưu trữ các tài sản số (PDF, DOCX, 3D Models)[cite: 263].
+* [cite_start]**Kiến thức tích lũy:** Để máy chủ EC2 nằm trong Private Subnet có thể tải file an toàn mà không tốn chi phí đi vòng qua NAT Gateway, tôi đã cấu hình S3 Gateway Endpoint để tạo đường hầm mạng nội bộ[cite: 264]. [cite_start]Đồng thời, áp dụng chặt chẽ quyền IAM Role cho EC2 để giới hạn truy cập đúng vào các thư mục sản phẩm cần thiết[cite: 265].
+
+### 5. Tự động hóa luồng Webhook Thanh toán
+* [cite_start]**Quá trình thực hiện & Kiến thức tích lũy:** Vẽ luồng giao tiếp thời gian thực cho SePay Webhook[cite: 266]. [cite_start]Khi có khách hàng thanh toán thành công, tín hiệu từ bên thứ 3 sẽ xuyên qua IGW, qua ALB vào EC2 để trigger logic cập nhật trạng thái đơn hàng và tự động mở khóa quyền tải file số cho người mua[cite: 267].
+
+### [cite_start]Sơ đồ Kiến trúc Tổng thể Đám mây (AWS Architecture) [cite: 268]
+
+![Sơ đồ kiến trúc AWS](tuan10-arch.png)
