@@ -6,48 +6,36 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-### Mục tiêu tuần 1:
+# [cite_start]WORKLOG TUẦN 1 [cite: 15]
 
-*	Làm quen với các thành viên, anh/chị hướng dẫn trong nhóm First Cloud Journey / nhóm thực tập AWS.
-*	Nắm quy định thực tập, cách làm việc và yêu cầu báo cáo tiến độ hằng tuần.
-*	Tìm hiểu các nhóm dịch vụ AWS cơ bản và làm quen với AWS Management Console, AWS CLI.
-*	Tìm hiểu bước đầu các dịch vụ AWS như EC2, S3 và IAM.
-*	Tìm hiểu cách làm workshop AWS và hoàn thành các nhiệm vụ cơ bản trên AWS Console Home để nhận credits khuyến mãi.
-*	Xem và học nội dung Module 01 để có cái nhìn ban đầu về cloud và AWS.
+## [cite_start]MỤC TIÊU VÀ NHIỆM VỤ ĐƯỢC GIAO [cite: 16]
 
+* [cite_start]Thiết lập tài khoản AWS và hoàn thành 5/5 task khởi động để nhận 100 credits miễn phí nhằm phục vụ cho các bài lab tiếp theo. [cite: 17]
+* [cite_start]Tìm hiểu cách sử dụng công cụ draw.io để thiết kế kiến trúc hệ thống, tạo tiền đề cho việc xây dựng các mô hình dữ liệu và hạ tầng phân tán sau này. [cite: 18]
+* [cite_start]Nắm bắt quy trình tạo một workshop AWS. [cite: 19]
+* [cite_start]Hoàn thành phần lý thuyết của Module 1, tập trung vào các chiến lược tối ưu chi phí và làm việc với dịch vụ AWS Support. [cite: 20]
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2 | - Làm quen với các thành viên FCJ và anh/chị hướng dẫn thực tập. <br>- Đọc và ghi chú quy định của đơn vị thực tập, cách làm việc và yêu cầu báo cáo.<br>- Xem tổng quan lộ trình thực tập và mục tiêu học tập theo tuần.	| 20/04/2026 | 20/04/2026 | <https://www.notion.so/Group-description-TP-HCM-347df829a730809a8f63d39505644917>
-| 3 | - Tìm hiểu AWS và các nhóm dịch vụ chính. <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + Security, Identity, and Management <br>- Ghi chú các dịch vụ nhập môn như EC2, S3 và IAM. <br>- Tìm hiểu mục đích của workshop AWS và làm theo hướng dẫn thực hiện workshop. | 21/04/2026 | 21/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - Tạo/cấu hình tài khoản AWS Free Tier. <br>- Tìm hiểu cách sử dụng AWS Management Console và AWS CLI. <br>- **Thực hành:** <br>&emsp; + Tạo tài khoản AWS <br>&emsp; + Cài đặt AWS CLI <br>&emsp; + Cấu hình credentials và default region <br>&emsp; + Chạy các lệnh AWS CLI cơ bản <br>- Bắt đầu hoàn thành các nhiệm vụ nhận credits trên AWS Console Home. | 22/04/2026 | 22/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - Tìm hiểu các khái niệm cơ bản của Amazon EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS & Security Group <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP <br>- Ôn lại một số lưu ý cơ bản về chi phí và cách sử dụng EC2. | 23/04/2026 | 23/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 6 | - Thực hành: <br>&emsp;+ Tạo EC2 instance <br>&emsp;+ Kết nối EC2 bằng SSH <br>&emsp;+ Gắn và kiểm tra EBS volume <br>- Tìm hiểu luồng deploy cơ bản của một project workshop AWS. <br>- Thử nghiệm deploy workshop bằng GitHub Actions. <br>- Hoàn thành các nhiệm vụ còn lại trên AWS Console Home. | 24/04/2026 | 24/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+## [cite_start]QUÁ TRÌNH THỰC HIỆN VÀ KIẾN THỨC TÍCH LŨY [cite: 21]
 
+### [cite_start]Thực hành vẽ kiến trúc hệ thống [cite: 22]
+[cite_start]Ứng dụng draw.io để phác thảo các luồng hệ thống trên đám mây. [cite: 22]
 
-### Kết quả đạt được tuần 1:
+![System Architecture Image 1](/images/tuan1-arch.png)
 
-*	Hiểu AWS là gì và làm quen với các nhóm dịch vụ AWS cơ bản:
-    *	Compute
-    *	Storage
-    *	Networking
-    *	Database
-    *	Security and Identity
-    *	Management and Monitoring
-*	Làm quen với AWS Management Console và biết cách tìm kiếm, truy cập các dịch vụ AWS qua giao diện web.
-*	Tạo/cấu hình tài khoản AWS Free Tier và nắm các yêu cầu thiết lập tài khoản ban đầu.
-*	Cài đặt và cấu hình AWS CLI trên máy cá nhân, bao gồm:
-    *	Access Key
-    *	Secret Key
-    *	Default Region
-    *	Output format
-*	Sử dụng AWS CLI để thực hiện một số thao tác cơ bản:
-    *	Kiểm tra thông tin tài khoản và cấu hình
-    *	Lấy danh sách region của AWS
-    *	Xem thông tin liên quan đến EC2
-    *	Tạo/quản lý key pair ở mức cơ bản
-*	Nắm các khái niệm EC2 cơ bản như instance type, AMI, EBS, SSH connection và Elastic IP.
-*	Thực hành tạo EC2 instance, kết nối SSH và gắn EBS volume.
-*	Hiểu cách học và thực hành theo workshop AWS, đồng thời thử nghiệm deploy workshop bằng GitHub Actions.
-*	Hoàn thành các nhiệm vụ cơ bản trên AWS Console Home và có trải nghiệm ban đầu với các hoạt động onboarding của AWS.
+[cite_start]**Video hướng dẫn:** https://youtu.be/l8isyDe-GwY?si=QUQOTtZCJgecLXhJ [cite: 23]
+
+### [cite_start]Tối ưu hóa chi phí (FinOps) [cite: 24]
+[cite_start]Kiến thức từ Module 1 giúp nhận thức rõ tầm quan trọng của việc quản lý ngân sách khi vận hành các hệ thống dữ liệu lớn. [cite: 24] [cite_start]Nắm được cách thiết lập cảnh báo ngân sách và tương tác với AWS Support để giải quyết các sự cố tài nguyên. [cite: 25]
+
+[cite_start]**Video hướng dẫn:** [cite: 26]
+* [cite_start]https://youtu.be/HxYZAK1coOI?si=bRrC5pBUqpOQ2oRB [cite: 27]
+* [cite_start]https://youtu.be/IK59Zdd1poE?si=LtBs-k-TAEsLf73h [cite: 28]
+* [cite_start]https://youtu.be/HSzrWGqo3ME?si=mYtE5xvChtIA1w9w [cite: 29]
+* [cite_start]https://youtu.be/pjr5a-HYAjI?si=96hVmzvl3ixAteYH [cite: 30]
+* [cite_start]https://youtu.be/2PQYqH_HkXw?si=sjvkojDP2yfmzlmb [cite: 31]
+* [cite_start]https://youtu.be/IY61YlmXQe8?si=epkaxcnIDRAtFs-b [cite: 32]
+
+### [cite_start]Thiết lập Workshop [cite: 33]
+[cite_start]Nắm được luồng khởi tạo và cấp quyền cơ bản khi chạy các tài nguyên thực hành trên AWS. [cite: 33]
+
+[cite_start]**Video hướng dẫn:** https://youtu.be/mXRqgMr_97U?si=uJ_zFiJFnupAUiZj [cite: 34]
