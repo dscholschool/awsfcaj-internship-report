@@ -1,29 +1,27 @@
 ---
-title: "Week 11 Worklog"
+title: "Worklog"
 date: 2024-01-01
-weight: 11
+weight: 1
 chapter: false
-pre: " <b> 1.11. </b> "
+pre: " <b> 1. </b> "
 ---
 
-## OBJECTIVES AND ASSIGNED TASKS
+{{% notice note %}}
+**Note:** This worklog might be missing some information all because of my gold fish brain sometime forgot to take note, sorry for the inconvenience.
+{{% /notice %}}
 
-* Support the deployment of the entire project source code (Frontend, Backend) and Database from the development environment (Local) to the AWS cloud infrastructure based on the architecture diagram finalized in week 10[cite: 271].
-* Participate in supporting team members to configure connections between services (Vercel, EC2, RDS, S3)[cite: 272].
-* Perform end-to-end integration testing (End-to-End Testing), especially the payment flow and automatic order status updates[cite: 273].
+**On this page**, I will introduce my worklog in detail during my internship at Bootcamp First Cloud AI Journey. This process is not just about completing a standard 3-month internship program, but a complete journey from getting acquainted with foundational AWS services, to personally designing and optimizing databases, and deploying a real-world project to the cloud with my team.
 
-## IMPLEMENTATION PROCESS AND ACCUMULATED KNOWLEDGE
+Below is a summary of what I learned and achieved each week:
 
-This week is the most important "hands-on" phase, where all theories and architectural drawings are transformed into actual resources running smoothly on the cloud[cite: 275].
-
-### Coordinating Deployment and Database Optimization (Amazon RDS)
-* **Implementation process:** Supported the team in initializing the Amazon RDS PostgreSQL database cluster placed in the Private Subnet[cite: 277]. Directly took charge of migrating the entire table structure, Indexes, as well as pushing Stored Procedures and Triggers from local machines to the actual RDS environment[cite: 278].
-* **Accumulated knowledge:** Mastered the process of configuring a Security Group (virtual firewall) to allow the Backend server (EC2) to communicate securely with RDS via port 5432[cite: 279]. Pushing the processing logic code directly down to the database layer helped me verify the actual load capacity and retrieval speed in the cloud[cite: 279].
-
-### Supporting Backend (EC2) and Storage (Amazon S3) Configuration
-* **Implementation process:** Participated with team members in setting up the Node.js environment on the EC2 server[cite: 281]. Concurrently, supported the initialization of the S3 Bucket to store 3D model files and PDF documents[cite: 282].
-* **Accumulated knowledge:** Applied the core knowledge of Module 5 (IAM) to assign an IAM Role directly to the EC2 instance[cite: 283]. Instead of embedding security credentials (Access Keys) into the Backend source code which could easily cause leaks, the team's system can currently call APIs to upload/download files from S3 automatically and with absolute security thanks to the Role-based authorization mechanism[cite: 284].
-
-### Payment Webhook Integration Testing (SePay)
-* **Implementation process:** Joined the whole team in executing practical purchasing scenarios to test the payment feature[cite: 286]. Acted as a log monitor at the database layer[cite: 287].
-* **Accumulated knowledge:** When SePay sends a Webhook notification of a successful transaction to the Backend, I directly monitored the activation of Triggers inside RDS[cite: 288]. The results showed that the reconciliation data matched perfectly, the order status was updated automatically in an instant, and file download permissions were successfully unlocked for users without any manual intervention[cite: 289].
+* **[Week 1: Kick-off, basic AWS environment configuration, and budget management (FinOps)](1.1-week1/)**
+* **[Week 2: In-depth study of AWS VPC, Subnet allocation, and network security](1.2-week2/)**
+* **[Week 3: Practical deployment of virtual network infrastructure, data flow handling, and NAT Gateway setup](1.3-week3/)**
+* **[Week 4: Finalizing network architecture and mastering EC2 compute virtual servers](1.4-week4/)**
+* **[Week 5: EC2 deployment practice, server lifecycle management, and automation with User Data](1.5-week5/)**
+* **[Week 6: Exploring cloud data storage architecture with Amazon S3 and EBS storage blocks](1.6-week6/)**
+* **[Week 7: Advanced storage practice and building identity security barriers with AWS IAM](1.7-week7/)**
+* **[Week 8: Completing security practice and exploring the Database ecosystem (Amazon RDS)](1.8-week8/)**
+* **[Week 9: Finalizing project Prototype, writing Stored Procedures/Triggers to optimize the database](1.9-week9/)**
+* **[Week 10: Designing system architecture and finalizing processing flows on draw.io](1.10-week10/)**
+* **[Week 11: Deploying actual infrastructure to AWS and testing full-system payment webhooks](1.11-week11/)**

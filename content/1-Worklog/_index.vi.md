@@ -1,29 +1,27 @@
 ---
-title: "Worklog Tuần 11"
+title: "Nhật ký công việc"
 date: 2024-01-01
-weight: 11
+weight: 1
 chapter: false
-pre: " <b> 1.11. </b> "
+pre: " <b> 1. </b> "
 ---
 
-## MỤC TIÊU & NHIỆM VỤ ĐƯỢC GIAO
+{{% notice note %}}
+**Note:** Worklog có thể thiếu một số thông tin vì thỉnh thoảng mình quên ghi chú lại, xin lỗi vì sự bất tiện này.
+{{% /notice %}}
 
-* Hỗ trợ triển khai toàn bộ mã nguồn của dự án (Frontend, Backend) và Cơ sở dữ liệu từ môi trường phát triển (Local) lên hạ tầng đám mây AWS dựa trên sơ đồ kiến trúc đã chốt ở tuần 10[cite: 271].
-* Tham gia hỗ trợ các thành viên trong nhóm cấu hình kết nối giữa các dịch vụ (Vercel, EC2, RDS, S3)[cite: 272].
-* Kiểm thử tích hợp toàn hệ thống (End-to-End Testing), đặc biệt là luồng thanh toán và tự động cập nhật trạng thái đơn hàng[cite: 273].
+**Trong trang này** mình sẽ giới thiệu chi tiết về Worklog (Nhật ký công việc) của mình trong suốt kỳ thực tập tại Bootcamp First Cloud AI Journey. Quá trình này không chỉ là việc hoàn thành một chương trình thực tập thông thường trong khoảng 3 tháng, mà còn là một hành trình trọn vẹn từ lúc bắt đầu làm quen với các dịch vụ nền tảng của AWS, cho đến khi tự tay thiết kế, tối ưu cơ sở dữ liệu và cùng nhóm triển khai thành công một dự án thực tế lên đám mây.
 
-## QUÁ TRÌNH THỰC HIỆN & KIẾN THỨC TÍCH LŨY
+Dưới đây là nội dung tóm tắt những gì mình đã học và làm được qua từng tuần:
 
-Tuần này là giai đoạn "thực chiến" quan trọng nhất, mọi lý thuyết và bản vẽ kiến trúc đều được chuyển hóa thành các tài nguyên thực tế hoạt động trơn tru trên đám mây[cite: 275].
-
-### Phối hợp Triển khai và Tối ưu Cơ sở dữ liệu (Amazon RDS)
-* **Quá trình thực hiện:** Hỗ trợ nhóm khởi tạo cụm cơ sở dữ liệu Amazon RDS PostgreSQL đặt tại Private Subnet[cite: 277]. Trực tiếp đảm nhận việc migration (chuyển đổi) toàn bộ cấu trúc bảng, Indexes, cũng như đưa các Stored Procedures và Triggers từ máy cá nhân lên môi trường RDS thực tế[cite: 278].
-* **Kiến thức tích lũy:** Nắm vững quy trình cấu hình Security Group (tường lửa ảo) để cho phép máy chủ Backend (EC2) có thể giao tiếp an toàn với RDS thông qua cổng 5432[cite: 279]. Việc đưa trực tiếp các đoạn mã xử lý logic xuống tầng database giúp tôi kiểm chứng được khả năng chịu tải và tốc độ truy xuất thực tế trên đám mây[cite: 279].
-
-### Hỗ trợ Cấu hình Backend (EC2) và Lưu trữ (Amazon S3)
-* **Quá trình thực hiện:** Tham gia cùng các thành viên thiết lập môi trường Node.js trên máy chủ EC2[cite: 281]. Đồng thời, hỗ trợ khởi tạo S3 Bucket để lưu trữ các tệp mô hình 3D và tài liệu PDF[cite: 282].
-* **Kiến thức tích lũy:** Vận dụng lại kiến thức cốt lõi của Module 5 (IAM) để gán IAM Role trực tiếp cho EC2[cite: 283]. Thay vì nhúng khóa bảo mật (Access Key) vào mã nguồn Backend dễ gây rò rỉ, hệ thống của nhóm hiện tại có thể gọi API upload/download file từ S3 một cách tự động và bảo mật tuyệt đối nhờ cơ chế cấp quyền theo Role[cite: 284].
-
-### Kiểm thử Tích hợp Webhook Thanh toán (SePay)
-* **Quá trình thực hiện:** Cùng cả nhóm thực hiện các kịch bản mua hàng thực tế để kiểm tra tính năng thanh toán[cite: 286]. Đóng vai trò giám sát log tại tầng cơ sở dữ liệu[cite: 287].
-* **Kiến thức tích lũy:** Khi SePay gửi Webhook thông báo giao dịch thành công về Backend, tôi theo dõi trực tiếp sự kích hoạt của các Triggers trong RDS[cite: 288]. Kết quả cho thấy dữ liệu đối soát trùng khớp, trạng thái đơn hàng được cập nhật tự động trong tíc tắc, và quyền tải file được mở khóa thành công cho người dùng mà không cần bất kỳ sự can thiệp thủ công nào[cite: 289].
+* **[Tuần 1: Khởi động, cấu hình môi trường AWS cơ bản và làm quen quản lý ngân sách (FinOps)](1.1-week1/)**
+* **[Tuần 2: Nghiên cứu chuyên sâu về Mạng ảo AWS VPC, phân chia Subnet và bảo mật mạng](1.2-week2/)**
+* **[Tuần 3: Triển khai thực tế hạ tầng mạng ảo, xử lý luồng dữ liệu và thiết lập NAT Gateway](1.3-week3/)**
+* **[Tuần 4: Hoàn thiện kiến trúc mạng và bắt đầu làm chủ dịch vụ máy chủ ảo tính toán EC2](1.4-week4/)**
+* **[Tuần 5: Thực hành triển khai EC2, quản trị vòng đời máy chủ và tự động hóa với User Data](1.5-week5/)**
+* **[Tuần 6: Khám phá kiến trúc lưu trữ dữ liệu đám mây với Amazon S3 và khối lưu trữ EBS](1.6-week6/)**
+* **[Tuần 7: Thực hành lưu trữ nâng cao và xây dựng rào chắn bảo mật định danh với AWS IAM](1.7-week7/)**
+* **[Tuần 8: Hoàn thiện thực hành bảo mật và khám phá hệ sinh thái Cơ sở dữ liệu (Amazon RDS)](1.8-week8/)**
+* **[Tuần 9: Hoàn thiện Prototype dự án, viết Stored Procedures/Triggers tối ưu cơ sở dữ liệu](1.9-week9/)**
+* **[Tuần 10: Thiết kế sơ đồ kiến trúc hệ thống (Architecture) và chốt luồng xử lý trên draw.io](1.10-week10/)**
+* **[Tuần 11: Triển khai hạ tầng thực tế lên AWS và kiểm thử webhook thanh toán toàn hệ thống](1.11-week11/)**
