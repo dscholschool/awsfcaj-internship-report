@@ -9,11 +9,11 @@ chapter: false
 # Internship Report
 
 ### Student Information:
-&emsp; **Full Name:** Le Quang Thao
+&emsp; **Full Name:** Dang Van Truong
 
-&emsp; **Phone Number:** 0784916123 
+&emsp; **Phone Number:** 0824210504
 
-&emsp; **Email:** lequangthao130@gmail.com
+&emsp; **Email:** dangtruong2105@gmail.com
 
 &emsp; **University:** Ho Chi Minh City University of Technology (HUTECH)
 

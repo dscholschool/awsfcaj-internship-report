@@ -8,11 +8,11 @@ chapter: false
 # Báo cáo thực tập
 
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Lê Quang Thảo
+&emsp; **Họ và tên:** Đặng Văn Trường
 
-&emsp; **Số điện thoại:** 0784916123
+&emsp; **Số điện thoại:** 0824210504
 
-&emsp; **Email:** lequangthao130@gmail.com
+&emsp; **Email:** dangtruong2105@gmail.com
 
 &emsp; **Trường:** Trường Đại học Công nghệ Thành phố Hồ Chí Minh (HUTECH)
 
