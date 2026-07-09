@@ -24,10 +24,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source code
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true  # Tải cả các git submodules (quan trọng cho themes)
+          submodules: recursive  # Cực kỳ quan trọng để GitHub kéo theme về
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2 #Sử dụng action peaceiris/actions-hugo@v2 để cài đặt Hugo.
