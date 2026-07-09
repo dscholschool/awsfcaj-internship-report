@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-# [cite_start]WORKLOG TUẦN 1 [cite: 15]
-
 ## [cite_start]MỤC TIÊU VÀ NHIỆM VỤ ĐƯỢC GIAO [cite: 16]
 
 * [cite_start]Thiết lập tài khoản AWS và hoàn thành 5/5 task khởi động để nhận 100 credits miễn phí nhằm phục vụ cho các bài lab tiếp theo. [cite: 17]

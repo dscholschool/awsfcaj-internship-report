@@ -1,33 +1,31 @@
 ---
-title: "Week 1 Worklog"
+title: "Worklog Tuần 1"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-# WEEK 1 WORKLOG
+### Mục tiêu và nhiệm vụ được giao
 
-## OBJECTIVES AND ASSIGNED TASKS
+* Thiết lập tài khoản AWS và hoàn thành 5/5 task khởi động để nhận 100 credits miễn phí nhằm phục vụ cho các bài lab tiếp theo.
+* Tìm hiểu cách sử dụng công cụ draw.io để thiết kế kiến trúc hệ thống, tạo tiền đề cho việc xây dựng các mô hình dữ liệu và hạ tầng phân tán sau này.
+* Nắm bắt quy trình tạo một workshop AWS.
+* Hoàn thành phần lý thuyết của Module 1, tập trung vào các chiến lược tối ưu chi phí và làm việc với dịch vụ AWS Support.
 
-* Set up an AWS account and complete 5/5 startup tasks to receive 100 free credits for the upcoming labs.
-* Learn how to use the draw.io tool to design system architecture, creating a premise for building data models and distributed infrastructure later.
-* Grasp the process of creating an AWS workshop.
-* Complete the theoretical part of Module 1, focusing on cost optimization strategies and working with the AWS Support service.
+### Quá trình thực hiện và kiến thức tích lũy
 
-## IMPLEMENTATION PROCESS AND ACCUMULATED KNOWLEDGE
+#### Thực hành vẽ kiến trúc hệ thống
+Ứng dụng draw.io để phác thảo các luồng hệ thống trên đám mây.
 
-### System Architecture Practice
-Applied draw.io to sketch cloud system flows.
+![Kiến trúc hệ thống Tuần 1](tuan1-arch.png)
 
-![System Architecture Image 1](/images/tuan1-arch.png)
+**Video hướng dẫn:** https://youtu.be/l8isyDe-GwY?si=QUQOTtZCJgecLXhJ
 
-**Tutorial Video:** https://youtu.be/l8isyDe-GwY?si=QUQOTtZCJgecLXhJ
+#### Tối ưu hóa chi phí (FinOps)
+Kiến thức từ Module 1 giúp nhận thức rõ tầm quan trọng của việc quản lý ngân sách khi vận hành các hệ thống dữ liệu lớn. Nắm được cách thiết lập cảnh báo ngân sách và tương tác với AWS Support để giải quyết các sự cố tài nguyên.
 
-### Cost Optimization (FinOps)
-Knowledge from Module 1 helped to clearly realize the importance of budget management when operating large data systems. Learned how to set up budget alerts and interact with AWS Support to resolve resource issues.
-
-**Tutorial Videos:**
+**Video hướng dẫn:**
 * https://youtu.be/HxYZAK1coOI?si=bRrC5pBUqpOQ2oRB
 * https://youtu.be/IK59Zdd1poE?si=LtBs-k-TAEsLf73h
 * https://youtu.be/HSzrWGqo3ME?si=mYtE5xvChtIA1w9w
@@ -35,7 +33,7 @@ Knowledge from Module 1 helped to clearly realize the importance of budget manag
 * https://youtu.be/2PQYqH_HkXw?si=sjvkojDP2yfmzlmb
 * https://youtu.be/IY61YlmXQe8?si=epkaxcnIDRAtFs-b
 
-### Workshop Setup
-Grasped the initialization flow and basic permission granting when running practical resources on AWS.
+#### Thiết lập Workshop
+Nắm được luồng khởi tạo và cấp quyền cơ bản khi chạy các tài nguyên thực hành trên AWS.
 
-**Tutorial Video:** https://youtu.be/mXRqgMr_97U?si=uJ_zFiJFnupAUiZj
+**Video hướng dẫn:** https://youtu.be/mXRqgMr_97U?si=uJ_zFiJFnupAUiZj
