@@ -1,33 +1,33 @@
 ---
 title: "Week 5 Worklog"
 date: 2024-01-01
-weight: 1
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-### Week 5 Objectives:
+## OBJECTIVES AND ASSIGNED TASKS
 
-* Build the initial frontend interface for the main user flows.
-* Research and practice storing product-related files on Amazon S3.
-* Refine the designed system architecture based on project requirements.
-* Prepare the frontend/backend integration workflow.
+* Start practicing the core lab series of Module 3 regarding the AWS EC2 cloud computing service.
+* Complete the labs sequentially, aiming to reach Lab 57 by the end of this week.
+* Apply learned theory to manually provision, configure, and manage the lifecycle of virtual servers.
 
+## IMPLEMENTATION PROCESS AND ACCUMULATED KNOWLEDGE
 
-### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| ---- | ---- | ---- | ---- | ----|
-| 2 | - Design the basic frontend layout and navigation flow. <br>- Create initial React pages for home, login/register, product list, and product detail. <br>- Define reusable UI components for product cards and forms. | 05/18/2026 | 05/18/2026 | <https://react.dev/> |
-| 3 | - Build the backend API skeleton for product management. <br>- Prepare Express routes and controllers for listing and retrieving product information. <br>- Test API responses with sample data. | 05/19/2026 | 05/19/2026 | <https://expressjs.com/en/guide/routing.html> |
-| 4 | - Research Amazon S3 upload and storage workflow for product assets. <br>- Define the expected file types: images, PDF, Word documents, and GLB 3D models. <br>- Draft the S3 object key structure for product files. | 05/20/2026 | 05/20/2026 | <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html> |
-| 5 | - Connect the frontend forms with backend API endpoints. <br>- Test the data exchange between React and Express using basic product data. <br>- Identify validation fields needed for product submission. | 05/21/2026 | 05/21/2026 | |
-| 6 | - Review the current architecture and adjust module responsibilities. <br>- Organize pending tasks for authentication, upload, seller workflow, and payment. <br>- Document technical issues found during early development. | 05/22/2026 | 05/22/2026 | |
+This week marks a significant transition from establishing network infrastructure to directly operating compute resources. Mastering EC2 opens up the capability to deploy complex distributed data architectures on the cloud.
 
+### EC2 Provisioning & SSH Access
+* **Implementation process:** Practiced the steps of selecting an Amazon Machine Image (AMI), determining the appropriate Instance Type, and setting up storage (EBS).
+* **Accumulated knowledge:** Mastered the skills of using Terminal/PuTTY combined with a Private Key (.pem) to establish secure SSH connections into Linux servers. Configuring Security Groups accurately is the decisive factor for successful connection without creating security vulnerabilities.
 
-### Week 5 Achievements:
+### Configuration Automation with EC2 User Data
+* **Implementation process:** This is an extremely powerful technique applied in the labs. Instead of SSH-ing into each machine to type installation commands manually, using scripts (shell scripts) in the User Data field helps the server automatically install web servers (Apache/Nginx) or necessary libraries immediately upon startup.
+* **Accumulated knowledge:** This skill is very useful when needing to quickly set up a standardized server environment to deploy powerful database management systems, ready for programming complex data processing logic using Stored Procedures or Triggers directly on the cloud.
 
-* Created the first React screens for authentication, product listing, product detail, and basic navigation.
-* Implemented the initial backend API structure for product and user-related operations.
-* Researched the file upload process for digital products such as PDF, Word files, images, and 3D models.
-* Practiced the Amazon S3 storage flow and identified how product files should be organized.
-* Reviewed and adjusted the system architecture to better support a digital marketplace use case.
+### Instance Lifecycle Management
+* **Implementation process:** Practiced operations such as Start, Stop, Reboot, and Terminate for servers.
+* **Accumulated knowledge:** This process helps reinforce the FinOps (Cloud Financial Management) mindset. Understanding AWS billing principles: when the server is in a Stopped state, CPU/RAM fees stop, but the accompanying storage space (EBS volume) continues to consume budget. This forms a habit of strict resource control, ensuring cost-efficiency for large-scale systems.
+
+### Instance Metadata Analysis
+* **Implementation process:** Practiced querying internal server information (such as Public IP, Private IP, Instance ID) by using the special IP address 169.254.169.254 directly from inside the EC2 instance.
+* **Accumulated knowledge:** This serves as a foundation for automating applications that are capable of self-awareness regarding the environment in which they are running.
