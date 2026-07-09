@@ -125,7 +125,7 @@ The infrastructure is designed for a low-cost learning/demo environment. The fin
 {{% /notice %}}
 -->
 
-Service | Configuration/Usage scope | Status | Estimate/notes to update
+Service | Configuration/Usage scope | Status | Estimate
 |---|---|---|---|
 |Amazon EC2 | 1 Ubuntu instance running the Node.js backend with PM2 | In use | ~7.59$/month |
 |Amazon RDS PostgreSQL | Single-AZ, db.t4g.micro, 20 GiB gp3 | In use | > ~12$/month |

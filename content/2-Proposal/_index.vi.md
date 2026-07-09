@@ -126,7 +126,7 @@ Dự án được triển khai theo hướng tiết kiệm chi phí để phục
 -->
 
 
-Dịch vụ | Cấu hình/Phạm vi dùng | Trạng thái | Ước tính/ghi chú cần cập nhật
+Dịch vụ | Cấu hình/Phạm vi dùng | Trạng thái | Ước tính
 |---|---|---|---|
 |Amazon EC2 | 1 instance Ubuntu chạy backend Node.js bằng PM2 | Đang dùng | ~7.59$/tháng |
 |Amazon RDS PostgreSQL | Single-AZ, db.t4g.micro, 20 GiB gp3 | Đang dùng | ~13$/tháng|
