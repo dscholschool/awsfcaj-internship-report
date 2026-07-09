@@ -1,34 +1,29 @@
 ---
 title: "Week 9 Worklog"
 date: 2024-01-01
-weight: 1
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
 
-### Week 9 Objectives:
+## OBJECTIVES AND ASSIGNED TASKS
 
-* Complete and test the main features of the current project prototype.
-* Improve authentication, product search, user management, 3D model preview, and payment confirmation.
-* Review remaining issues before AWS deployment.
-* Plan the next stage for architecture drawing, AWS deployment, seller workflow, and preview improvement.
+* Conduct a comprehensive review and testing of the current prototype's main features before deploying to the cloud environment.
+* Improve the user experience flow (registration/login, product search).
+* Create a detailed project deployment plan to launch the website and optimize database queries.
 
+## IMPLEMENTATION PROCESS AND ACCUMULATED KNOWLEDGE
 
-### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| ---- | ---- | ---- | ---- | ----|
-| 2 | - Review the current project prototype and list completed features. <br>- Test registration, login, and authentication flow. <br>- Check basic user session behavior and access control. | 06/15/2026 | 06/15/2026 | |
-| 3 | - Test product search and product display functions. <br>- Verify product detail pages for digital documents and 3D model products. <br>- Check the 3D viewer behavior for GLB model files. | 06/16/2026 | 06/16/2026 | <https://threejs.org/docs/> |
-| 4 | - Test admin user management features. <br>- Verify ban/unban user logic and its effect on user access. <br>- Review missing parts in role management and seller registration. | 06/17/2026 | 06/17/2026 | |
-| 5 | - Test the SePay payment integration flow. <br>- Call SePay API or process payment notification data to confirm successful transactions. <br>- Check whether successful transactions correctly update purchase status. | 06/18/2026 | 06/18/2026 | <https://docs.sepay.vn/> |
-| 6 | - Review remaining issues and update the project plan. <br>- List incomplete features including AWS deployment, architecture diagram, seller registration, category management, and document preview before purchase. <br>- Prepare the direction for the next development phase. | 06/19/2026 | 06/19/2026 | <https://aws.amazon.com/architecture/> |
+This week serves as a critical stepping stone to transition from a locally running prototype to an architecture ready for deployment on AWS infrastructure.
 
+### System Administration and User Experience Construction
+* **Implementation process:** Reviewed the entire registration, login, and authentication flow.
+* **Accumulated knowledge:** Mastered how to manage user session states.
 
-### Week 9 Achievements:
+### Optimal Database Design
+* **Implementation process:** Designed and programmed at the system's database layer, focusing on ensuring retrieval performance and data integrity to support complex functions (such as payment, order management) integrated by other team members.
+* **Accumulated knowledge:** Delved deep into database optimization techniques. Manually designed and wrote Stored Procedures to encapsulate complex business logic right at the data layer, created Triggers to catch events and automatically update order statuses instantly, and established a scientific Index system. These skills help increase query speed significantly, significantly reducing the processing logic load for the Application Layer, and ensuring absolute data consistency when the system operates with large transaction volumes.
 
-* Completed a working prototype with registration, login, product search, and basic marketplace functions.
-* Implemented admin-side user management including ban and unban user operations.
-* Supported digital products such as PDF/Word documents and 3D model files.
-* Displayed 3D model products directly on the web using a 3D viewer.
-* Integrated real-time payment confirmation through SePay API and transaction notification handling.
-* Identified pending tasks: official AWS architecture diagram, AWS deployment testing, seller registration, category management, and document preview before purchase.
+### Infrastructure Architecture Planning
+* **Implementation process:** Listed the features needed for completion (Seller Registration, Category Management) and outlined the infrastructure framework in preparation for pushing source code to the actual environment.
+* **Accumulated knowledge:** Clearly understood the overall deployment flow. Identified necessary components on AWS (such as EC2 for Backend, S3 for storing 3D files/Digital documents, RDS for database) in preparation for drawing the complete architecture diagram in the following week.
