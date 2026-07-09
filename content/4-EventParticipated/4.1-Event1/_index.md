@@ -1,5 +1,5 @@
 ---
-title: "Event 1: Saturday Meet Up"
+title: "Event 1"
 date: 2024-01-01
 weight: 1
 chapter: false
