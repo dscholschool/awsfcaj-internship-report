@@ -1,34 +1,34 @@
 ---
 title: "Worklog Tuần 3"
 date: 2024-01-01
-weight: 1
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-### Mục tiêu tuần 3:
+## MỤC TIÊU VÀ NHIỆM VỤ ĐƯỢC GIAO
 
-* Thực hành Amazon EC2 thông qua việc tạo instance và cấu hình truy cập mạng.
-* Hiểu Security Group và cách kết nối SSH đến EC2 Linux.
-* Triển khai thử ứng dụng web mẫu trên EC2.
-* Thực hành cấu hình IAM User, IAM Role và Policy để kiểm soát quyền truy cập.
+* Bắt tay vào thực hành các bài lab của Module 2 trên môi trường AWS thực tế.
+* Chuyển hóa toàn bộ lý thuyết về kiến trúc mạng (VPC) đã học ở tuần trước thành các kỹ năng thao tác trên AWS Management Console.
+* Hoàn thiện tiến độ các bài lab (hiện đang làm đến Lab 03), tập trung vào việc tự tay xây dựng một môi trường mạng cô lập, cấu hình định tuyến và thiết lập các lớp bảo mật.
 
+## QUÁ TRÌNH THỰC HIỆN VÀ KIẾN THỨC TÍCH LŨY
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2 | - Tìm hiểu các khái niệm Amazon EC2 gồm AMI, instance type, key pair, EBS volume, public IP và region. <br>- Chuẩn bị cấu hình cho EC2 dùng trong triển khai web mẫu. | 04/05/2026 | 04/05/2026 | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html> |
-| 3 | - Tạo thử EC2 instance từ AWS Management Console. <br>- Cấu hình Security Group cho SSH và HTTP. <br>- Kiểm tra mối liên hệ giữa rule mạng và khả năng truy cập server. | 05/05/2026 | 05/05/2026 | <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html> |
-| 4 | - Kết nối đến EC2 bằng SSH. <br>- Thực hành các lệnh Linux cơ bản để kiểm tra hệ thống, cài package và quản lý file. <br>- Kiểm tra kết nối server từ máy cá nhân. | 06/05/2026 | 06/05/2026 | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-ssh.html> |
-| 5 | - Triển khai ứng dụng web mẫu trên EC2. <br>- Kiểm tra truy cập web thông qua public IP. <br>- Sửa các lỗi cơ bản liên quan đến port, firewall và trạng thái service. | 07/05/2026 | 07/05/2026 | |
-| 6 | - Thực hành cấu hình IAM User, IAM Role và Policy. <br>- Tìm hiểu cách cấp quyền an toàn cho tài nguyên AWS. <br>- Tổng kết quy trình triển khai EC2 và các bài học rút ra. | 08/05/2026 | 08/05/2026 | <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html> |
+Với khối lượng thực hành lớn trong tuần này, tôi đã đi sâu vào từng bước cấu hình hạ tầng mạng. Những kiến thức tích lũy được không chỉ dừng lại ở lý thuyết mà đã trở thành kỹ năng giải quyết bài toán thực tế:
 
+### Khởi tạo và Quy hoạch tài nguyên mạng (VPC & Subnet Allocation)
+* **Quá trình thực hiện:** Tự tay tạo một VPC hoàn toàn mới thay vì dùng Default VPC của AWS. Tính toán và chia nhỏ dải IP (CIDR) thành các Subnet khác nhau đặt tại nhiều Availability Zones (AZs) để đảm bảo tính sẵn sàng cao (High Availability).
+* **Kiến thức tích lũy:** Khắc sâu được kỹ năng quy hoạch địa chỉ mạng. Tôi học được cách phân bổ IP một cách tiết kiệm và hợp lý: tạo các Public Subnet với dải IP nhỏ cho các tài nguyên như Load Balancer hay Bastion Host, và tạo các Private Subnet với dải IP lớn hơn nhiều để làm không gian rộng rãi chứa các máy chủ ứng dụng (App Servers) hoặc cơ sở dữ liệu. Nhận thức rõ nguyên lý cô lập tài nguyên ngay từ bước thiết kế mạng vật lý ảo.
 
-### Kết quả đạt được tuần 3:
+### Định tuyến luồng giao thông (Routing) và Xử lý Internet Access
+* **Quá trình thực hiện:** Gắn Internet Gateway (IGW) cho VPC và cấu hình các bảng định tuyến (Route Tables) để điều hướng các gói tin. Đặc biệt, thiết lập cơ chế để các máy chủ nằm sâu trong mạng nội bộ (Private) vẫn có thể tải các bản cập nhật từ Internet mà không bị lộ địa chỉ IP thật.
+* **Kiến thức tích lũy:** Thành thạo thao tác "map" (gắn kết) các Subnet vào đúng Route Table tương ứng. Hiểu rõ luồng đi của gói tin: từ máy chủ nội bộ -> Route Table -> Internet Gateway -> Internet.
+* **Kiến thức cốt lõi về NAT Gateway / NAT Instance:** Đây là điểm sáng trong quá trình thực hành. Tôi học được cách triển khai NAT Gateway nằm ở Public Subnet, đóng vai trò như một "người trung gian" nhận yêu cầu truy cập Internet từ các máy chủ trong Private Subnet, thay mặt chúng lấy dữ liệu về rồi trả lại. Điều này giúp hệ thống nội bộ vừa kết nối được với thế giới bên ngoài (để update patch/software) vừa chặn đứng hoàn toàn các kết nối chủ động trái phép khởi tạo từ Internet nhắm vào hệ thống.
 
-* Tạo được EC2 instance và hiểu vai trò của AMI, instance type, key pair và cấu hình storage.
-* Cấu hình Security Group cho SSH và truy cập web.
-* Kết nối thành công đến EC2 bằng SSH và thực hiện các thao tác server cơ bản.
-* Triển khai và kiểm thử ứng dụng web mẫu trên EC2.
-* Thực hành phân quyền bằng IAM User, Role và Policy.
-* Hiểu EC2 có thể đóng vai trò application server trong hệ thống web trên cloud.
+### Triển khai cấu hình Bảo mật thực tế (Security Implementation)
+* **Quá trình thực hiện:** Trực tiếp viết và áp dụng các luật cho Security Groups (SG) và Network Access Control Lists (NACL) lên các tài nguyên vừa tạo trong Lab 03.
+* **Kiến thức tích lũy:** Xây dựng được tư duy phòng thủ theo chiều sâu (Defense in Depth). Thực hành nguyên tắc "Quyền tối thiểu" (Least Privilege) thông qua việc chỉ mở port 22 (SSH) từ một địa chỉ IP duy nhất (IP của máy tính cá nhân hoặc Bastion Host), từ chối toàn bộ các nguồn truy cập khác. Nắm vững kỹ thuật tham chiếu Security Group: Thay vì cho phép một dải IP tĩnh truy cập vào Database, tôi học được cách cấu hình để Database Security Group chỉ chấp nhận kết nối đến từ App Server Security Group. Tính năng tham chiếu vòng này của AWS giúp hệ thống tự động co giãn cực kỳ linh hoạt và bảo mật tuyệt đối.
+
+### Kỹ năng Kiểm thử và Xử lý sự cố (Troubleshooting)
+* **Quá trình thực hiện:** Thử nghiệm kết nối mạng (Ping, SSH) giữa các máy ảo trong các subnet khác nhau và từ ngoài Internet vào. Đọc log và tìm lỗi khi kết nối thất bại.
+* **Kiến thức tích lũy:** Rèn luyện tư duy debug mạng hạ tầng. Khi một kết nối không thành công, tôi học được cách kiểm tra tuần tự từ dưới lên trên: Kiểm tra máy chủ có Public IP chưa -> Kiểm tra Security Group đã mở port chưa -> Kiểm tra Route Table có đường đi ra IGW không -> Kiểm tra NACL có vô tình block subnet không.

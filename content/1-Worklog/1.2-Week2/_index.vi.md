@@ -1,34 +1,38 @@
 ---
 title: "Worklog Tuần 2"
 date: 2024-01-01
-weight: 1
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-### Mục tiêu tuần 2:
+## [cite_start]MỤC TIÊU VÀ NHIỆM VỤ ĐƯỢC GIAO [cite: 36]
 
-* Nắm nội dung và yêu cầu thực hành của Module 01.
-* Tìm hiểu bài toán tối ưu hóa chi phí trên AWS và cách theo dõi chi phí bằng AWS Budgets.
-* Hiểu cơ chế tính phí cơ bản của các dịch vụ AWS như EC2 và S3.
-* Thực hành phân quyền cơ bản bằng IAM và tìm hiểu quy trình triển khai ứng dụng trên cloud.
+* [cite_start]Tập trung hoàn thành toàn bộ các bài thực hành (lab) thuộc Module 1 nhằm củng cố kỹ năng quản lý tài nguyên và kiểm soát chi phí ban đầu. [cite: 37]
+* [cite_start]Nghiên cứu lý thuyết và kiến trúc cốt lõi của Module 2, bao gồm dịch vụ mạng ảo AWS Virtual Private Cloud (VPC), các giải pháp bảo mật phân tầng (VPC Security) và cơ chế kết nối mạng riêng an toàn (VPN). [cite: 38]
 
+## [cite_start]QUÁ TRÌNH THỰC HIỆN VÀ KIẾN THỨC TÍCH LŨY [cite: 39]
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --- | --- | --- | --- |
-| 2 | - Ôn tập nội dung Module 01 và xác định các phần cần thực hành. <br>- Ghi chú các nhóm dịch vụ AWS và khái niệm cloud cơ bản. <br>- Liên hệ nội dung module với mục tiêu thực tập và định hướng dự án sau này. | 27/04/2026 | 27/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - Tìm hiểu bài toán tối ưu hóa chi phí trên AWS. <br>- Phân biệt chi phí hạ tầng cố định và chi phí cloud theo mô hình pay-as-you-go. <br>- Phân tích các yếu tố làm phát sinh chi phí như thời gian chạy EC2, dung lượng lưu trữ và truyền dữ liệu. | 28/04/2026 | 28/04/2026 | <https://aws.amazon.com/pricing/> |
-| 4 | - Tìm hiểu cách tạo và cấu hình AWS Budgets. <br>- Xem xét ngưỡng cảnh báo, thông báo email và cách theo dõi chi phí. <br>- Thực hành tạo budget đơn giản để giám sát chi phí trong quá trình thực tập. | 29/04/2026 | 29/04/2026 | <https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html> |
-| 5 | - Tìm hiểu cơ chế tính phí của Amazon EC2 và Amazon S3. <br>- So sánh các yếu tố tính phí của EC2 như loại instance, region, thời gian chạy và storage. <br>- So sánh các yếu tố tính phí của S3 như storage class, dung lượng object, request và data transfer. | 30/04/2026 | 30/04/2026 | <https://aws.amazon.com/ec2/pricing/> <br> <https://aws.amazon.com/s3/pricing/> |
-| 6 | - Tìm hiểu phân quyền cơ bản bằng IAM cho quá trình deploy. <br>- Ôn lại IAM User, IAM Role, Policy và permission boundary. <br>- Tổng hợp quy trình triển khai cơ bản của một ứng dụng web trên AWS. | 01/05/2026 | 01/05/2026 | <https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html> |
+### [cite_start]Hoàn thiện chuỗi bài Lab Module 1: Quản trị tài nguyên và Kiểm soát ngân sách [cite: 40]
+* [cite_start]**Quá trình thực hiện:** Triển khai cấu hình thực tế các công cụ giám sát tài chính đám mây của AWS bao gồm AWS Billing Dashboard, AWS Cost Explorer và thiết lập các ngưỡng cảnh báo tự động thông qua AWS Budgets. [cite: 41]
+* [cite_start]**Kiến thức tích lũy:** Nắm vững tư duy FinOps (Quản trị tài chính trên mây). [cite: 42] [cite_start]Việc hoàn thành các bài lab giúp thành thạo cách thiết lập hạn mức chi phí (Budget Alarms) gửi thông báo qua Email/SNS khi chi phí thực tế hoặc chi phí dự báo vượt ngưỡng (ví dụ: 80% hoặc 100% tài khoản Credit miễn phí). [cite: 43] [cite_start]Hiểu cách phân tích biểu đồ xu hướng tiêu thụ tài nguyên bằng Cost Explorer để phát hiện sớm các tài nguyên lãng phí (như các ổ đĩa EBS không gắn vào EC2) và biết cách tạo Ticket yêu cầu hỗ trợ kỹ thuật một cách chuyên nghiệp qua AWS Support Center. [cite: 44]
 
+### [cite_start]Xây dựng kiến trúc mạng logic với AWS Virtual Private Cloud (VPC) [cite: 45]
+* [cite_start]**Quá trình thực hiện:** Phân tích các thành phần cấu thành một hệ thống mạng độc lập, an toàn trên AWS đám mây và thiết kế sơ đồ phân chia dải mạng logic. [cite: 46]
+* [cite_start]**Kiến thức tích lũy:** [cite: 47]
+  * [cite_start]**Dải địa chỉ IP (CIDR Block):** Hiểu cách quy hoạch vùng mạng sử dụng chuẩn CIDR (ví dụ: 10.0.0.0/16 cung cấp 65,536 địa chỉ IP) để làm nền tảng phân bổ hạ tầng cho doanh nghiệp mà không bị trùng lặp hệ thống mạng nội bộ (On-premises). [cite: 48]
+  * [cite_start]**Phân vùng mạng (Subnets):** Nắm rõ tư duy thiết kế hệ thống nhiều lớp (Multi-tier Architecture). [cite: 49] [cite_start]Học cách chia nhỏ VPC thành Public Subnet (dành cho các thành phần hướng lò ra ngoài Internet như Web Server, Load Balancer) và Private Subnet (dành cho các thành phần cốt lõi cần bảo mật tuyệt đối như Database, App Server/Backend). [cite: 50] [cite_start]Khắc sâu quy tắc AWS luôn giữ lại 5 địa chỉ IP đầu tiên và cuối cùng trong mỗi Subnet cho các mục đích định tuyến và quản lý nội bộ. [cite: 51]
+  * [cite_start]**Cơ chế định tuyến (Route Tables & Internet Gateway):** Biết cách thiết lập Internet Gateway (IGW) và gắn (attach) vào VPC để kích hoạt khả năng giao tiếp với Internet. [cite: 52] [cite_start]Thành thạo việc cấu hình Bảng định tuyến (Route Table): Public Route Table sẽ có một route hướng lưu lượng (0.0.0.0/0) đi qua IGW, trong khi Private Route Table cô lập hoàn toàn, giúp bảo vệ dữ liệu tối đa. [cite: 53]
+* [cite_start]**Video hướng dẫn:** https://youtu.be/O9Ac_vGHquM?si=BeFIVXXvxxdZSIXl [cite: 54]
 
-### Kết quả đạt được tuần 2:
+### [cite_start]Thiết lập rào chắn bảo mật phân tầng (VPC Security) [cite: 55]
+* [cite_start]**Quá trình thực hiện:** Nghiên cứu và so sánh hai tầng bảo vệ mạng cốt lõi của AWS để áp dụng vào việc kiểm soát lưu lượng truy cập (Inbound/Outbound). [cite: 56]
+* [cite_start]**Kiến thức tích lũy:** Phân biệt và làm chủ hai công cụ bảo mật có tính chất bù trừ cho nhau: [cite: 57]
+  * [cite_start]**Security Groups (SG):** Hoạt động như một tường lửa ảo ở cấp độ Instance (EC2). [cite: 58] [cite_start]Đây là cơ chế Stateful (có nhớ trạng thái) – nghĩa là nếu cấu hình cho phép lưu lượng Inbound (đi vào) từ một cổng, hệ thống sẽ tự động cho phép lưu lượng Outbound (đi ra) tương ứng phản hồi mà không cần mở cổng Outbound. [cite: 59] [cite_start]Tư duy thiết kế tại đây tuân thủ nguyên tắc "Least Privilege" (Quyền tối thiểu), chỉ mở các cổng thực sự cần thiết (như cổng 80/443 cho Web, cổng 22 cho SSH). [cite: 60]
+  * [cite_start]**Network Access Control Lists (NACLs):** Hoạt động như một tường lửa ở cấp độ Subnet. [cite: 61] [cite_start]Đây là cơ chế Stateless (không nhớ trạng thái) – đòi hỏi phải cấu hình tường minh cả luật Inbound và Outbound. [cite: 62] [cite_start]NACLs xử lý các quy tắc theo thứ tự số hiệu (Rule Number) từ thấp đến cao và hỗ trợ cả luật Allow (Cho phép) lẫn Deny (Từ chối) – cực kỳ hữu ích khi cần chặn các dải IP độc hại tấn công vào hệ thống. [cite: 63]
+* [cite_start]**Video hướng dẫn:** https://youtu.be/BPuD1l2hEQ4?si=KS3dLYLcKvWBX-6d [cite: 64]
 
-* Hoàn thành quá trình học ban đầu với Module 01 và ghi chú các khái niệm AWS quan trọng.
-* Hiểu lý do cần kiểm soát chi phí cloud ngay từ giai đoạn đầu của dự án.
-* Tìm hiểu và cấu hình cơ bản AWS Budgets để theo dõi chi phí và cảnh báo.
-* Nắm được các yếu tố ảnh hưởng đến chi phí EC2 và S3 như thời gian chạy, loại instance, dung lượng lưu trữ và băng thông.
-* Thực hành các khái niệm IAM cơ bản gồm User, Group, Role, Policy và nguyên tắc phân quyền tối thiểu.
-* Có cái nhìn tổng quan về cách triển khai và quản lý ứng dụng trên AWS.
+### [cite_start]Giải pháp kết nối mở rộng doanh nghiệp (VPN) [cite: 65]
+* [cite_start]**Quá trình thực hiện:** Nghiên cứu mô hình kết nối mạng lai (Hybrid Cloud) an toàn giữa trung tâm dữ liệu truyền thống và đám mây AWS. [cite: 66]
+* [cite_start]**Kiến thức tích lũy:** Hiểu sâu về kiến trúc AWS Site-to-Site VPN, giải pháp giúp thiết lập một kênh truyền dữ liệu mã hóa IPSec an toàn đi qua môi trường Internet công cộng. [cite: 67] [cite_start]Nắm rõ vai trò của hai thực thể: Customer Gateway (CGW) đặt tại phía văn phòng/nhà máy của khách hàng và Virtual Private Gateway (VGW) đặt tại phía AWS VPC. [cite: 68] [cite_start]Kiến thức này cực kỳ quan trọng đối với các hệ thống lớn cần đồng bộ dữ liệu liên tục giữa hạ tầng vật lý sẵn có và các dịch vụ phân tích dữ liệu trên đám mây. [cite: 69]
+* [cite_start]**Video hướng dẫn:** https://youtu.be/CXU8D3kyxIc?si=gyatA4GN0EmhEwff [cite: 70]
