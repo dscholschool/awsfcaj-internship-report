@@ -42,4 +42,4 @@ Việc tham gia và theo dõi giải đấu "Saturday Meet Up" không chỉ là 
 
 ### Hình ảnh khi tham gia sự kiện:
 
-![Hình ảnh tham gia sự kiện Saturday Meet Up](/images/event1-photo.jpg)
+![Hình ảnh tham gia sự kiện Saturday Meet Up](event1-photo.jpg)
