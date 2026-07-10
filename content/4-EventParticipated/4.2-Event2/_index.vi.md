@@ -6,120 +6,63 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+## 1. Thông tin chung về sự kiện
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+* **Tên sự kiện:** Enterprise Cloud Architectures and Industry Application featuring Cloud Kinetics & Renova Cloud
+* **Đơn vị tổ chức:** Youtube AWS Study Group (Hình thức Online)
+* **Diễn giả tham gia:** Nguyễn Gia Hưng, Khang Nguyễn, Như Trần, Vĩnh Bách
+* **Vai trò trong sự kiện:** Người tham dự
 
-### Mục Đích Của Sự Kiện
+## 2. Hình thức và Tổng quan sự kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+Sự kiện được tổ chức dưới dạng một buổi hội thảo chuyên sâu trực tuyến nhằm giới thiệu, định hướng và chia sẻ kinh nghiệm làm việc thực tế của các chuyên gia trong ngành điện toán đám mây và kiến trúc dữ liệu. Không đi theo lối mòn lý thuyết, sự kiện tập trung vào việc bóc tách khoảng cách giữa năng lực học đường với kỳ vọng thực tế của doanh nghiệp, giúp sinh viên hiểu rõ cách thị trường lao động đánh giá và lựa chọn nhân tài.
 
-### Danh Sách Diễn Giả
+## 3. Diễn biến và nội dung chi tiết 
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+Xuyên suốt buổi livestream, các diễn giả đã lần lượt mổ xẻ các khía cạnh từ kỹ thuật chuyên môn, kỹ năng mềm cho đến tâm thế nghề nghiệp một cách vô cùng trực quan:
 
-### Nội Dung Nổi Bật
+### Tư duy Kỹ thuật thực chiến và "Phần chìm của tảng băng" (Diễn giả: Vĩnh Bách)
+Là một sinh viên Công nghệ thông tin hướng tới mảng dữ liệu và hệ thống, tôi đặc biệt ấn tượng với phần chia sẻ của anh Vĩnh Bách, một Kỹ sư dữ liệu (Data Engineer). Anh đã hệ thống hóa sự khác biệt giữa năng lực học đường và thực tế sản xuất:
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+* **Nền tảng sinh viên đang có (The Foundation):** Anh Vỉnh thừa nhận các trường đại học đã trang bị rất tốt phần khung kiến trúc nền tảng cho sinh viên bao gồm: Cơ sở dữ liệu & Mô hình hóa dữ liệu, Lập trình & Kỹ nghệ phần mềm, Cấu trúc dữ liệu & Giải thuật, Hệ thống phân tán và API.
+* **Thực trạng làm đồ án (Where you are NOW - Tư duy Đồ án):** Sinh viên hiện tại đang sống trong vùng an toàn với các đặc điểm: làm việc trên các bộ dữ liệu sạch (Clean Datasets) chỉ vài trăm dòng; mọi yêu cầu được định nghĩa rõ ràng ngay từ ngày đầu tiên; có vài tháng để thong thả hoàn thiện dự án; và nếu xảy ra sai sót kỹ thuật thì cái giá phải trả chỉ là mất vài điểm số trong học bạ.
+* **Thực tế khốc liệt bên ngoài (What's waiting OUTSIDE - Tư duy Sản xuất):** Khi bước ra môi trường doanh nghiệp lớn, hệ thống thực tế phải đối mặt với: Dữ liệu bị khuyết thiếu (Missing values), trùng lặp dữ liệu lớn, định dạng không nhất quán giữa các hệ thống cũ và mới, schema (cấu trúc dữ liệu) thay đổi liên tục, dữ liệu đổ về từ nhiều nguồn khác nhau. Các sự cố phát sinh (Production Incidents) sẽ lập tức gây mất doanh thu và khiến các bên liên quan (Stakeholders) không hài lòng.
+* **Mô hình Tảng băng trôi (The Iceberg - Tutorial vs. Production):** Một dự án làm theo hướng dẫn (Tutorial Project) chỉ chiếm **10% phần nổi trên mặt nước** (viết API cơ bản, làm UI, setup DB đơn giản). **90% phần chìm dưới mặt nước** mới là rào cản thực sự mà doanh nghiệp cần kỹ sư giải quyết:
+  * Quản lý luồng dữ liệu (Data Orchestration) khi cấu trúc thay đổi liên tục.
+  * Đảm bảo tính toàn vẹn dữ liệu trong môi trường giao dịch cao tải.
+  * Cấu hình bảo mật nâng cao, vận hành hệ thống theo quy chuẩn DevOps và FinOps.
+  * **Bài học cốt lõi:** Việc biết sử dụng công cụ (Knowing Tools) không đồng nghĩa với việc biết xây dựng hệ thống (Building System). Công cụ có thể thay đổi liên tục, nhưng tư duy kiến trúc và kỹ năng quản trị sự đánh đổi mới là thứ ở lại.
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+### Tâm thế làm việc, Tiêu chí đánh giá và Vòng tròn sự nghiệp (Diễn giả: Như Trần)
+Phần chia sẻ của chị Như Trần chủ yếu tập trung vào việc chuẩn bị tâm lý, vượt qua nỗi sợ hãi để bước ra khỏi vùng an toàn khi tham gia vào thị trường lao động.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+### Quy tắc kỹ thuật sống còn và Lời giải cho nỗi sợ phụ thuộc AI (Diễn giả: Khang Nguyễn)
+* **Thay đổi bản chất trong tư duy (Observation):** Anh đưa ra một so sánh rất đắt giá về ranh giới giữa hai môi trường:
+  * **Đi học:** "Trả tiền để có quyền được làm sai" (Nhà trường thu học phí để dạy và sửa sai cho sinh viên).
+  * **Đi làm:** "Được trả tiền để không làm sai" (Doanh nghiệp trả lương để nhận lại sự chuẩn xác và hiệu quả).
+* **Mô hình 5 tiêu chí doanh nghiệp đánh giá bạn (How Companies Evaluate You):** Anh Khang làm rõ rằng kiến thức kỹ thuật chỉ là một phần nhỏ, doanh nghiệp đánh giá một ứng viên dựa trên 5 tầng:
+  1. **Thái độ (Attitude):** Tư duy, sự nhiệt huyết và tinh thần sẵn sàng đón nhận thử thách.
+  2. **Trình độ (Competence):** Bằng cấp chuyên môn và kỹ năng kỹ thuật cứng.
+  3. **Kinh nghiệm (Experience):** Lịch sử thực hiện công việc và các dự án đã qua.
+  4. **Trải nghiệm (Exposure):** Độ rộng và độ sâu của thế giới quan và môi trường làm việc đã cọ xát.
+  5. **Tố chất (Potential):** Phẩm chất thiên bẩm và năng lực phát triển dài hạn trong tương lai.
+* **5 Giá trị của việc đi làm (The 5 Benefits of Work):** Anh Khang nhắc nhở sinh viên đi làm không chỉ vì lương (Salary) mà còn vì: Kinh nghiệm (Phát triển kỹ năng), Mạng lưới quan hệ (Network), Kiến thức chuyên ngành sâu sắc (Knowledge), và Sự trưởng thành của bản thân (Growth).
+* **Mô hình 3 vòng tròn sự nghiệp (The 3 Circles):** Để đạt được sự viên mãn trong sự nghiệp, chúng ta phải tìm được điểm giao thoa của 3 vòng tròn: Việc bạn thích làm (Đam mê), Việc mang lại lợi ích tốt cho bạn (Phúc lợi/Sức khỏe) và Việc bạn phải làm (Trách nhiệm xã hội/Nghĩa vụ chuyên môn).
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+Anh Khang Nguyễn nhấn mạnh các quy tắc: Kiến thức nền tảng là quan trọng nhất, mọi sự đánh đổi công nghệ đều có chi phí, và giao tiếp bản chất là một kỹ năng kỹ thuật cốt lõi để phối hợp hệ thống.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+Một điểm sáng cực kỳ đặc biệt trong phần Q&A của anh Khang là câu hỏi của một bạn học viên về việc **bị phụ thuộc vào AI**. Bạn ấy lo lắng rằng việc dùng AI hỗ trợ làm việc khiến bạn ấy cảm thấy mình "kém thông minh đi" và bất an về năng lực cá nhân. Anh Khang đã mổ xẻ bài toán này thông qua bảng so sánh vai trò tường minh:
+* **Những phần việc AI đang ngày càng làm tốt hơn (AI Gets Better At):** Viết các đoạn mã SQL, tự động sinh mã nguồn (Generating code), tạo các dashboard trực quan hóa dữ liệu cơ bản và viết tài liệu hướng dẫn (Documentation).
+* **Những phần việc Kỹ sư luôn là người làm chủ (Engineer Still Own):**
+  * Thấu hiểu sâu sắc bài toán nghiệp vụ phức tạp của doanh nghiệp (Understanding business problems).
+  * Thiết kế kiến trúc tổng thể toàn hệ thống an toàn và tối ưu (Designing architectures).
+  * Đưa ra các quyết định đánh đổi về mặt công nghệ và chi phí (Making trade-offs).
+  * Giao tiếp, kết nối và đồng bộ luồng công việc giữa các phòng ban (Communication & alignment).
+* **Bài học cốt lõi:** AI không thay thế con người, nó chỉ thay thế phần thực thi lặp đi lặp lại. Tư duy kiến trúc, năng lực giải quyết bài toán nghiệp vụ và kỹ năng giao tiếp hệ thống mới là "thánh địa" bất khả xâm phạm của người kỹ sư.
 
-#### Domain-Driven Design (DDD)
+## 4. Tổng kết và Bài học rút ra (Takeaways)
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+Dù phần lớn các câu hỏi trong mục Q&A của sự kiện khá quen thuộc và thường gặp ở các hội thảo tại trường đại học, nhưng góc nhìn thực chiến về "90% phần chìm của tảng băng hệ thống" và vị thế của người kỹ sư trước làn sóng AI đã mang lại cho tôi những bài học định hướng rất sâu sắc. Nó giúp tôi nhận ra rằng, để trở thành một Data Analyst hay Kỹ sư hệ thống chuyên nghiệp, việc chỉ biết sử dụng công cụ hay ghi nhớ cú pháp lệnh là chưa đủ. Tôi cần tập trung cao độ vào tư duy thiết kế kiến trúc, hiểu sâu bài toán kinh doanh của doanh nghiệp, làm chủ các quyết định đánh đổi công nghệ và rèn luyện một thái độ làm việc chuyên nghiệp, chịu trách nhiệm tối đa với hệ thống mình xây dựng.
 
-#### Event-Driven Architecture
-
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
-
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
-
-### Những Gì Học Được
-
-#### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+### Hình ảnh tham gia event (xem livestream trên kênh Youtube AWS Study Group):
+![Event Photo](image.png)

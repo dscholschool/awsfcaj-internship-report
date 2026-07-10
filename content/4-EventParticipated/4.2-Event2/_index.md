@@ -6,121 +6,74 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+## 1. General Event Information
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+* **Event Name:** Enterprise Cloud Architectures and Industry Application featuring Cloud Kinetics & Renova Cloud
+* **Organizer:** AWS Study Group (Online Streaming)
+* **Speakers:** Nguyen Gia Hung, Khang Nguyen, Nhu Tran, Vinh Bach
+* **Role:** Attendee (Online Form)
 
-### Event Objectives
+## 2. Event Format and Overview
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+The event was organized as a comprehensive seminar where senior industry speakers shared practical insights, methodologies, and personal experiences working within the cloud architecture and data ecosystems. Rather than a purely academic lecture, this session focused on bridging the gap between student capabilities and real-world corporate expectations, helping students understand how modern enterprises evaluate talent.
 
-### Speakers
+## 3. Detailed Presentation Breakdown and Slide Insights
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+### Technical Readiness and the "Iceberg" of Production (Speaker: Vinh Bach)
+As an IT student interested in data engineering and analytics, I found the presentation by Mr. Vinh Bach to be exceptionally valuable. He structured his talk by comparing what students currently possess versus what is waiting for them in the actual labor market.
 
-### Key Highlights
+* **The Foundation Students Already Have:** Mr. Bach pointed out that university programs equip students with a solid foundational baseline, which includes:
+  * **Databases & Data Modeling:** Basic relational tables and structured relationships.
+  * **Programming & Software Engineering:** General language syntax (PHP, C#, JavaScript, etc.).
+  * **Data Structures & Algorithms:** Standard problem-solving logic.
+  * **Distributed Systems & APIs:** Core concepts of system-to-system communication.
+* **Where Students Stand Now (The Tutorial Mindset):** Currently, student projects operate in a highly controlled environment. They handle clean datasets consisting of only a few hundred rows. The criteria and constraints are clearly defined from day one. Students are given months to finish a project, and making a mistake only means losing a few academic points on a rubric.
+* **What is Waiting Outside (The Production Reality):** The corporate environment presents a chaotic reality. Systems deal with missing values, massive data duplicates, inconsistent formats from legacy code, sudden database schema changes, and data flowing simultaneously from multiple unstandardized sources. Production incidents can lead to direct revenue loss and deeply unhappy stakeholders.
+* **The Iceberg Metaphor (Tutorial vs. Production):** Mr. Bach illustrated that a tutorial project represents only the **10% above water** (basic API, frontend/UI, standard DB setups). The remaining **90% below water** represents true production engineering weight:
+  * Maintaining data pipelines when schemas change.
+  * Ensuring zero data loss during high-concurrency transactions.
+  * Automating recovery after infrastructure failure.
+  * Managing data orchestration, security compliance, and FinOps governance.
+  * **Core Takeaway:** Knowing specific cloud tools is not equivalent to building a robust system. Tools change rapidly, but architecture principles stay.
 
-#### Identifying the drawbacks of legacy application architecture
+### Professional Mindset, Evaluation, and Career Fulfillment (Speaker: Nhu Tran)
+Ms. Nhu Tran’s segment focused heavily on the psychological transition into the labor market, emphasizing how to break out of comfort zones and manage career expectations.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+### Engineering Rules and the AI Dilemma (Speaker: Khang Nguyen)
+* **The Core Observation (Shift in Accountability):** Mr. Khang explicitly separated the environment of "Going to school" versus "Going to work":
+  * **Going to School (Đi học):** "Paying tuition to have the right to be wrong" (Trả tiền để có thể sai).
+  * **Going to Work (Đi làm):** "Being paid to not make mistakes" (Được trả tiền để không làm sai). This shift requires absolute professional accountability.
+* **How Companies Evaluate You:** Mr. Khang revealed the comprehensive 5-tier evaluation framework that enterprises use to assess individuals, showing that technical skills are only one piece of the puzzle:
+  1. **Attitude (Thái độ):** Mindset, enthusiasm, and willingness to cooperate.
+  2. **Competence (Trình độ):** Your qualifications and hard technical skills.
+  3. **Experience (Kinh nghiệm):** Your professional track record and history of executed tasks.
+  4. **Exposure (Trải nghiệm):** The breadth and depth of your life and work experiences.
+  5. **Potential (Tố chất):** Your innate qualities and long-term growth capacity.
+* **The 5 Benefits of Work:** She reminded students that working means more than just a paycheck, breaking it down into: Salary (Financial compensation), Experience (Skills development), Network (Relationships & connections), Knowledge (Industry insights & wisdom), and Growth (Personal development).
+* **The 3 Circles of Work:** To achieve long-term career fulfillment, Mr. Khang advised striving for the exact intersection of three circles:
+  * **What you LOVE to do** (Your passion).
+  * **What BENEFITS you** (Your compensation, welfare, and health).
+  * **What you HAVE to do** (Your duty, social responsibility, and accountability).
 
-#### Transitioning to modern application architecture – Microservices
+Mr. Khang Nguyen shared operational rules for working in modern cloud environments, emphasizing that every trade-off has a cost and communication itself is a fundamental technical skill. 
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+A highly compelling moment occurred during his Q&A session when a student expressed a deep anxiety: **The fear of AI dependency**, stating that relying on AI tools made them feel less intelligent and insecure about their capabilities, even though they successfully accomplished their work. The discussion outlined a clear division of ownership between AI and Human Engineers:
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+* **What AI is Getting Better At (Automated Execution):**
+  * Writing basic and advanced SQL queries.
+  * Generating standard boilerplate code.
+  * Creating generic visualization dashboards.
+  * Writing system documentation.
+* **What Engineers Still Own (Human Intellectual Core):**
+  * **Understanding business problems:** Translating chaotic human demands into structured engineering requirements.
+  * **Designing architectures:** Creating scalable, resilient, and secure end-to-end cloud networks.
+  * **Making trade-offs:** Evaluating the financial and technical costs of different service paths.
+  * **Communication & alignment:** Bridging gaps between stakeholders, product owners, and engineering teams.
+* **Core Takeaway:** AI will not replace engineers; instead, engineers who master AI to automate execution while retaining total ownership over architecture and trade-off design will lead the industry.
 
-#### Domain-Driven Design (DDD)
+## 4. Summary and Takeaways
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+Although some general Q&A inquiries touched upon standard academic themes, the deep analysis of the "Production Iceberg" and the explicit framework of how enterprises evaluate talent provided immense clarity. As an IT student, this event reinforced that mastering a specific tool or language syntax is just the baseline. True professional maturity lies in understanding business problems, mastering architecture design, managing system trade-offs, and cultivating the professional attitude expected by modern corporations.
 
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
-
-### Key Takeaways
-
-#### Design Mindset
-
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
-
-#### Technical Architecture
-
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
-
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
-
-### Applying to Work
-
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
-
-### Event Experience
-
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
-
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
-
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
-
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
-
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+### Event photo (Watching livestream on AWS Study Group Channel):
+![Event Photo](image.png)
