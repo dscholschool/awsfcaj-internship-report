@@ -20,7 +20,7 @@ chapter: false
 
 &emsp; **Lớp:** 22DTHA3
 
-&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
+&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Việt Nam
 
 &emsp; **Vị trí thực tập:** FCJ Cloud Intern
 
