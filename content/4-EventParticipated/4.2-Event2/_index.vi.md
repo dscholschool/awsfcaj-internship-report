@@ -9,8 +9,8 @@ pre: " <b> 4.2. </b> "
 ## 1. Thông tin chung về sự kiện
 
 * **Tên sự kiện:** Enterprise Cloud Architectures and Industry Application featuring Cloud Kinetics & Renova Cloud
-* **Đơn vị tổ chức:** Youtube AWS Study Group (Hình thức Online)
-* **Diễn giả tham gia:** Nguyễn Gia Hưng, Khang Nguyễn, Như Trần, Vĩnh Bách
+* **Đơn vị tổ chức:**  Bootcamp First Cloud AI Journey (FCAJ)
+* **Diễn giả tham gia:** Nguyễn Gia Hưng, Khang Nguyễn, Như Trần, Vỉnh Bành
 * **Vai trò trong sự kiện:** Người tham dự
 
 ## 2. Hình thức và Tổng quan sự kiện
@@ -21,8 +21,8 @@ Sự kiện được tổ chức dưới dạng một buổi hội thảo chuyê
 
 Xuyên suốt buổi livestream, các diễn giả đã lần lượt mổ xẻ các khía cạnh từ kỹ thuật chuyên môn, kỹ năng mềm cho đến tâm thế nghề nghiệp một cách vô cùng trực quan:
 
-### Tư duy Kỹ thuật thực chiến và "Phần chìm của tảng băng" (Diễn giả: Vĩnh Bách)
-Là một sinh viên Công nghệ thông tin hướng tới mảng dữ liệu và hệ thống, tôi đặc biệt ấn tượng với phần chia sẻ của anh Vĩnh Bách, một Kỹ sư dữ liệu (Data Engineer). Anh đã hệ thống hóa sự khác biệt giữa năng lực học đường và thực tế sản xuất:
+### Tư duy Kỹ thuật thực chiến và "Phần chìm của tảng băng" (Diễn giả: Vỉnh Bành)
+Là một sinh viên Công nghệ thông tin hướng tới mảng dữ liệu và hệ thống, tôi đặc biệt ấn tượng với phần chia sẻ của anh Vỉnh Bành, một Kỹ sư dữ liệu (Data Engineer). Anh đã hệ thống hóa sự khác biệt giữa năng lực học đường và thực tế sản xuất:
 
 * **Nền tảng sinh viên đang có (The Foundation):** Anh Vỉnh thừa nhận các trường đại học đã trang bị rất tốt phần khung kiến trúc nền tảng cho sinh viên bao gồm: Cơ sở dữ liệu & Mô hình hóa dữ liệu, Lập trình & Kỹ nghệ phần mềm, Cấu trúc dữ liệu & Giải thuật, Hệ thống phân tán và API.
 * **Thực trạng làm đồ án (Where you are NOW - Tư duy Đồ án):** Sinh viên hiện tại đang sống trong vùng an toàn với các đặc điểm: làm việc trên các bộ dữ liệu sạch (Clean Datasets) chỉ vài trăm dòng; mọi yêu cầu được định nghĩa rõ ràng ngay từ ngày đầu tiên; có vài tháng để thong thả hoàn thiện dự án; và nếu xảy ra sai sót kỹ thuật thì cái giá phải trả chỉ là mất vài điểm số trong học bạ.
